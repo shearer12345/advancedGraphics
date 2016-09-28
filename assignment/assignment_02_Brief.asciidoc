@@ -1,0 +1,17 @@
+= Advanced Graphics Assignment 02 Brief 2016-17
+shearer12345
+
+:imagesdir: ./assets/
+:revealjs_customtheme: "reveal.js/css/theme/white.css"
+:source-highlighter: highlightjs
+
+[.clearfix]
+--
+[.left]
+image::Chuckie_Egg_on_BBC_Micro.jpg[height=288]
+
+[.right]
+image::Pac-man.png[height=288]
+--
+
+TODO

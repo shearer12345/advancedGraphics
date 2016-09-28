@@ -1,0 +1,184 @@
+= Advanced Graphics Introduction
+:imagesdir: assets
+:revealjs_history: true
+
+[.stretch]
+image::forzaHorizons3.jpg[]
+
+== What is this module about?
+
+* Advanced Graphics Techniques
+* Graphics on other platforms
+
+[.stretch]
+image::doom_2016_99_final.jpg[]
+
+== Expected experience
+
+* Building on:
+  ** Games Programming
+  ** Graphics
+  ** Object-Oriented Programming
+  ** Game Engine Architectures
+
+== Teaching Style
+
+* Practice-led
+  ** lectures will introduce concepts, techniques, things to think about
+  ** effective learning will require lots of programming engagement
+* There are many "advanced graphics" techniques, you'll be expected to read and research about them for your needs
+* Ask questions, query norms
+* Discuss with each other
+  ** Constructive Critique
+* Critique my code too
+
+
+== Dissecting a Frame
+
+[.stretch]
+video::video/stepThroughAFrame_0AD.mp4[options="autoplay,loop"]
+
+== Assignments
+
+* Two assignments
+  ** Assignment 1 = 60% weight
+  ** Assignment 2 = 40% weight
+* More technical showcase than complete game
+* Space for personal expression and portfolio
+* You'll need to go beyond the taught content for high marks
+  ** this is MComp level - self-study/research is expected
+
+== Assignment 1
+
+* Demonstrating various Advanced Graphics Techniques
+
+== Assignment 2
+
+* retarget onto another platform
+  ** WebGL
+  ** Android
+  ** iOS
+  ** RaspberryPi
+* considerations of the new platform
+* good code practice
+  ** single source
+
+== Workshops
+
+* Sequences of exercises/tutorials
+  ** Developing the skills you'll integrate together for your assignments
+* You can (should) start the first assignment soon
+
+== Module Overview
+
+* Embedded through out
+  ** {cpp}, libraries, engines and other languages
+  ** Modern {cpp}
+  ** Efficiency
+  ** Good Programming Practice
+  ** Software Engineering Best Practices, e.g.
+    *** Versioning
+    *** Reading Documentation
+
+== Assembling a toolset
+
+* {cpp} (required)
+* Conan.io (required)
+* git (recommended!!)
+
+== Assembling a toolset 2
+
+* SDL2 (required)
+  ** Windowing
+  ** GL context
+  ** input handling
+* SDL2_image
+  ** image loading
+* SDL2_ttf
+  ** text
+* Assimp
+  ** model loading
+
+== C and {cpp}
+
+* Why are we looking using {cpp} for building games
+* Relationship of C and {cpp}
+* Performance focus of this module
+
+[.stretch]
+image::cpp.png[]
+
+== Build Systems
+
+* conan.io
+* cmake
+
+image::cmake.jpg[height=200]
+image::conan_small.png[height=200]
+
+
+== Module overview
+
+* We'll cover a variety of Advanced Graphics aspects
+  ** rendering techniques
+  ** non-PC targets
+  ** associate tools/skills
+
+== Libraries and Cross-platform
+
+* building libraries for cross-platform
+* using libraries cross-platform
+
+== Geometry Shaders
+
+== Tesselation shaders
+
+== Model loading
+
+== Model animation
+
+* Skeletal
+* Morph Targets
+
+== Render to texture
+
+* and video textures
+
+== Shadows
+
+== Logging
+
+* why
+  ** vs `printf` or `cout`
+  ** why start with logging
+* how
+
+== Time and Time Budgets
+
+* issues related to time
+  ** fps, deadlines
+  ** latency, jitter
+* measuring time
+* "hard real-time"
+
+== Debugging/Tracing
+
+* Apitrace
+
+
+
+== Recommended Reading/Resources
+
+* OpenGL SuperBible - at least 2014 edition (physical copies in the library)
+* Game engine architecture - Jason Gregory 2014
+* OpenGL ES 3.0 programming guide
+Check reading list on Blackboard for complete list
+
+== Blogs etc
+
+* http://ithare.com/[ITHare] http://ithare.com/feed/[RSS feed]
+
+== Sources
+
+* http://www.adriancourreges.com/blog/2016/09/09/doom-2016-graphics-study/
+* http://www.adriancourreges.com/blog/2015/11/02/gta-v-graphics-study/

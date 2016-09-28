@@ -1,0 +1,30 @@
+= Advanced Graphics Assignment 01 CRG 2016-17
+shearer12345
+
+:imagesdir: ./assets/
+:revealjs_customtheme: "reveal.js/css/theme/white.css"
+:source-highlighter: highlightjs
+
+
+== Coursework assignment CRG
+
+[options="header", cols="15s,10s,15,15,15,15"]
+|===
+| Criterion | Weight | Pass (50%) | Merit (60%) | Distinction (70%) | Distinction+ (80%+)
+
+
+| Some Criterion
+| Some weighting (e.g. 10%)
+| Pass point
+| As for Pass, extra for Merit
+| As for Merit, extra for Distinction
+| As Distinction, plus extra
+
+| TODO
+| TODO
+| TODO
+| TODO
+| TODO
+| TODO
+
+|===

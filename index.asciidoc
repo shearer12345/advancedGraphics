@@ -1,0 +1,13 @@
+= Advanced Graphics
+shearer12345
+:stem: latexmath
+
+:imagesdir: ./assets/
+:revealjs_customtheme: "reveal.js/css/theme/white.css"
+:source-highlighter: highlightjs
+
+== List of Lectures 1
+
+. link:lecture01_introduction.html[Introduction]
+
+== Future
