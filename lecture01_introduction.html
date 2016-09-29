@@ -1,0 +1,110 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Advanced Graphics Introduction</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="reveal.js/css/reveal.css" rel="stylesheet"><link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme"><link href="reveal.js/lib/css/zenburn.css" rel="stylesheet"><script>document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script></head><body><div class="reveal"><div class="slides"><section class="title"><h1>Advanced Graphics Introduction</h1><div class="preamble"><div class="imageblock stretch" style=""><img src="assets/forzaHorizons3.jpg" alt="forzaHorizons3" height="100%"></div></div></section>
+<section id="_what_is_this_module_about"><h2>What is this module about?</h2><div class="ulist"><ul><li><p>Advanced Graphics Techniques</p></li><li><p>Graphics on other platforms</p></li></ul></div>
+<div class="imageblock stretch" style=""><img src="assets/doom_2016_99_final.jpg" alt="doom 2016 99 final" height="100%"></div></section>
+<section id="_expected_experience"><h2>Expected experience</h2><div class="ulist"><ul><li><p>Building on:</p><div class="ulist"><ul><li><p>Games Programming</p></li><li><p>Graphics</p></li><li><p>Object-Oriented Programming</p></li><li><p>Game Engine Architectures</p></li></ul></div></li></ul></div></section>
+<section id="_teaching_style"><h2>Teaching Style</h2><div class="ulist"><ul><li><p>Practice-led</p><div class="ulist"><ul><li><p>lectures will introduce concepts, techniques, things to think about</p></li><li><p>effective learning will require lots of programming engagement</p></li></ul></div></li><li><p>There are many "advanced graphics" techniques, you&#8217;ll be expected to read and research about them for your needs</p></li><li><p>Ask questions, query norms</p></li><li><p>Discuss with each other</p><div class="ulist"><ul><li><p>Constructive Critique</p></li></ul></div></li><li><p>Critique my code too</p></li></ul></div></section>
+<section id="_dissecting_a_frame"><h2>Dissecting a Frame</h2><div class="videoblock stretch stretch"><video src="assets/video/stepThroughAFrame_0AD.mp4" width="100%" height="100%" data-autoplay controls loop>Your browser does not support the video tag.</video></div></section>
+<section id="_assignments"><h2>Assignments</h2><div class="ulist"><ul><li><p>Two assignments</p><div class="ulist"><ul><li><p>Assignment 1 = 60% weight</p></li><li><p>Assignment 2 = 40% weight</p></li></ul></div></li><li><p>More technical showcase than complete game</p></li><li><p>Space for personal expression and portfolio</p></li><li><p>You&#8217;ll need to go beyond the taught content for high marks</p><div class="ulist"><ul><li><p>this is MComp level - self-study/research is expected</p></li></ul></div></li></ul></div></section>
+<section id="_assignment_1"><h2>Assignment 1</h2><div class="ulist"><ul><li><p>Demonstrating various Advanced Graphics Techniques</p></li><li><p>Demonstrating good performance characteristics</p></li></ul></div></section>
+<section id="_assignment_2"><h2>Assignment 2</h2><div class="ulist"><ul><li><p>retarget onto another platform</p><div class="ulist"><ul><li><p>WebGL</p></li><li><p>Android</p></li><li><p>iOS</p></li><li><p>RaspberryPi</p></li></ul></div></li><li><p>considerations of the new platform</p></li><li><p>good code practice</p><div class="ulist"><ul><li><p>single source</p></li></ul></div></li></ul></div></section>
+<section id="_workshops"><h2>Workshops</h2><div class="ulist"><ul><li><p>Sequences of exercises/tutorials</p><div class="ulist"><ul><li><p>Developing the skills you&#8217;ll integrate together for your assignments</p></li></ul></div></li><li><p>You can (should) start the first assignment soon</p></li></ul></div></section>
+<section id="_module_overview"><h2>Module Overview</h2><div class="ulist"><ul><li><p>Embedded through out</p><div class="ulist"><ul><li><p>C++, libraries, engines and other languages</p></li><li><p>Modern C++</p></li><li><p>Efficiency</p></li><li><p>Good Programming Practice</p></li><li><p>Software Engineering Best Practices, e.g.</p><div class="ulist"><ul><li><p>Versioning</p></li><li><p>Reading Documentation</p></li></ul></div></li></ul></div></li></ul></div></section>
+<section id="_assembling_a_toolset"><h2>Assembling a toolset</h2><div class="ulist"><ul><li><p>C++ (required)</p></li><li><p>Conan.io (required)</p></li><li><p>git (recommended!!)</p></li></ul></div></section>
+<section id="_assembling_a_toolset_2"><h2>Assembling a toolset 2</h2><div class="ulist"><ul><li><p>SDL2 (required)</p><div class="ulist"><ul><li><p>Windowing</p></li><li><p>GL context</p></li><li><p>input handling</p></li></ul></div></li><li><p>SDL2_image</p><div class="ulist"><ul><li><p>image loading</p></li></ul></div></li><li><p>SDL2_ttf</p><div class="ulist"><ul><li><p>text</p></li></ul></div></li><li><p>Assimp</p><div class="ulist"><ul><li><p>model loading</p></li></ul></div></li></ul></div></section>
+<section id="_c_and_c"><h2>C and C++</h2><div class="ulist"><ul><li><p>Why are we looking using C++ for building games</p></li><li><p>Relationship of C and C++</p></li><li><p>Performance focus of this module</p></li></ul></div>
+<div class="imageblock stretch" style=""><img src="assets/cpp.png" alt="cpp" height="100%"></div></section>
+<section id="_build_systems"><h2>Build Systems</h2><div class="ulist"><ul><li><p>conan.io</p></li><li><p>cmake</p></li></ul></div>
+<div class="imageblock" style=""><img src="assets/cmake.jpg" alt="cmake" height="200"></div>
+<div class="imageblock" style=""><img src="assets/conan_small.png" alt="conan small" height="200"></div></section>
+<section id="_module_overview_2"><h2>Module overview</h2><div class="ulist"><ul><li><p>We&#8217;ll cover a variety of Advanced Graphics aspects</p><div class="ulist"><ul><li><p>rendering techniques</p></li><li><p>non-PC targets</p></li><li><p>associate tools/skills</p></li></ul></div></li></ul></div></section>
+<section id="_libraries_and_cross_platform"><h2>Libraries and Cross-platform</h2><div class="ulist"><ul><li><p>building libraries for cross-platform</p></li><li><p>using libraries cross-platform</p></li></ul></div></section>
+<section id="_geometry_shaders"><h2>Geometry Shaders</h2></section>
+<section id="_tesselation_shaders"><h2>Tesselation shaders</h2></section>
+<section id="_model_loading"><h2>Model loading</h2></section>
+<section id="_model_animation"><h2>Model animation</h2><div class="ulist"><ul><li><p>Skeletal</p></li><li><p>Morph Targets</p></li></ul></div></section>
+<section id="_render_to_texture"><h2>Render to texture</h2><div class="ulist"><ul><li><p>and video textures</p></li></ul></div></section>
+<section id="_shadows"><h2>Shadows</h2></section>
+<section id="_logging"><h2>Logging</h2><div class="ulist"><ul><li><p>why</p><div class="ulist"><ul><li><p>vs <code>printf</code> or <code>cout</code></p></li><li><p>why start with logging</p></li></ul></div></li><li><p>how</p></li></ul></div></section>
+<section id="_time_and_time_budgets"><h2>Time and Time Budgets</h2><div class="ulist"><ul><li><p>issues related to time</p><div class="ulist"><ul><li><p>fps, deadlines</p></li><li><p>latency, jitter</p></li></ul></div></li><li><p>measuring time</p></li><li><p>"hard real-time"</p></li></ul></div></section>
+<section id="_debugging_tracing"><h2>Debugging/Tracing</h2><div class="ulist"><ul><li><p>Apitrace</p></li></ul></div></section>
+<section id="_recommended_reading_resources"><h2>Recommended Reading/Resources</h2><div class="ulist"><ul><li><p>OpenGL SuperBible - at least 2014 edition (physical copies in the library)</p></li><li><p>Game engine architecture - Jason Gregory 2014</p></li><li><p>OpenGL ES 3.0 programming guide
+Check reading list on Blackboard for complete list</p></li></ul></div></section>
+<section id="_blogs_etc"><h2>Blogs etc</h2><div class="ulist"><ul><li><p><a href="http://ithare.com/">ITHare</a> <a href="http://ithare.com/feed/">RSS feed</a></p></li></ul></div></section>
+<section id="_sources"><h2>Sources</h2><div class="ulist"><ul><li><p><a href="http://www.adriancourreges.com/blog/2016/09/09/doom-2016-graphics-study/" class="bare">http://www.adriancourreges.com/blog/2016/09/09/doom-2016-graphics-study/</a></p></li><li><p><a href="http://www.adriancourreges.com/blog/2015/11/02/gta-v-graphics-study/" class="bare">http://www.adriancourreges.com/blog/2015/11/02/gta-v-graphics-study/</a></p></li></ul></div></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+Reveal.initialize({
+  // Display controls in the bottom right corner
+  controls: true,
+  // Display a presentation progress bar
+  progress: true,
+  // Display the page number of the current slide
+  slideNumber: false,
+  // Push each slide change to the browser history
+  history: true,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: true,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: 0,
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: false,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  //theme: Reveal.getQueryHash().theme || 'black',
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'slide',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'default',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: 960,
+  height: 700,
+
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
+
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.5,
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+      { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      
+      { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+});</script></body></html>
