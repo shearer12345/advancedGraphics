@@ -51,6 +51,7 @@ video::video/stepThroughAFrame_0AD.mp4[options="autoplay,loop"]
 == Assignment 1
 
 * Demonstrating various Advanced Graphics Techniques
+* Demonstrating good performance characteristics
 
 == Assignment 2
 
