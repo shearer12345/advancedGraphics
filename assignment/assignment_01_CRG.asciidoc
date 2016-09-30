@@ -1,5 +1,5 @@
 = Advanced Graphics Assignment 01 CRG 2016-17
-shearer12345
+John Shearer <jshearer@lincoln.ac.uk>
 
 :imagesdir: ./assets/
 :revealjs_customtheme: "reveal.js/css/theme/white.css"
@@ -13,18 +13,53 @@ shearer12345
 | Criterion | Weight | Pass (50%) | Merit (60%) | Distinction (70%) | Distinction+ (80%+)
 
 
-| Some Criterion
-| Some weighting (e.g. 10%)
-| Pass point
-| As for Pass, extra for Merit
-| As for Merit, extra for Distinction
-| As Distinction, plus extra
+| Document
+| 10%
+| Document includes a list of features and screenshots of each
+| As for Pass, plus Document includes control keys for the demo
+| As for Merit, plus Document reflects on the development
+| As Distinction, plus the reflection is clear, concise and insightful
 
-| TODO
-| TODO
-| TODO
-| TODO
-| TODO
-| TODO
+| Logging and performance
+| 10%
+| The game logs basic performance information to console, or screen (e.g. render time)
+| As for Pass, plus logging breaks down the render and gives details such as batch count
+| As for Merit, plus logging is show in the window as renderered text
+| As Distinction, plus the log scrolls and uses colours to represent different log events
+
+| Model loading
+| 10%
+| At least one model is loaded from a file
+| Multiple models are loaded from a file, with textures
+| Multiple models are loaded from a file, with textures, from at least 2 different formats
+| As Distinction, plus a model can be specified (and loaded) with a command line parameter
+
+| Animation
+| 10%
+| Skeletal Animation on one model, with at least 2 level of hierarchy (body + arms)
+| As for Pass, plus more than 2 levels of hierarchy (body + upper arms + lower arms)
+| As for Merit, plus Skeletal Animation on multiple models (with different animations)
+| As for Distinction, plus at least 10 "instanced" models
+
+| Particle effects
+| 10%
+| There is a particle effect with at least 1,000 particles, affected by gravity
+| As for Pass, plus at least 10,000 particles
+| As for Merit, plus particles bounce of some plane/surface/ground
+| As for Distinction, plus particles are "bill-boarded"
+
+| Shadows
+| 20%
+| Some models have "cheat shadows" on the ground beneath them (not connected to the model geometry, e.g. circles)
+| As for Pass, plus a "shadow map" is generated and can be shown on-screen on a keypress
+| As for Merit, plus some models have shadows that match the geometry
+| As for Distinction, plus shadows have good visual qualities (e.g. no/low shadow acne; low aliasing; soft edges )
+
+| Tesselation Shader
+| 20%
+| There is a tesselated 2D object in the scene (e.g. a triangle made from many smaller (visually evident) triangles)
+| As for Merit, plus the tesselation detail of the 3D object can be controlled with keyboard input
+| As for Pass, plus there is a tesselated 3D object in the scene (e.g. a sphere)
+| As for Distinction, plus the tesselation generates at least 1,000,000 polygons (you'll need to calculate and log the polycount)
 
 |===
