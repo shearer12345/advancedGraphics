@@ -1,5 +1,5 @@
 = Advanced Graphics Assignment 02 CRG 2016-17
-shearer12345
+John Shearer <jshearer@lincoln.ac.uk>
 
 :imagesdir: ./assets/
 :revealjs_customtheme: "reveal.js/css/theme/white.css"
@@ -13,18 +13,18 @@ shearer12345
 | Criterion | Weight | Pass (50%) | Merit (60%) | Distinction (70%) | Distinction+ (80%+)
 
 
-| Some Criterion
-| Some weighting (e.g. 10%)
-| Pass point
-| As for Pass, extra for Merit
-| As for Merit, extra for Distinction
-| As Distinction, plus extra
+| Document
+| 20%
+| Document includes a list of features and screenshots/photos of each
+| As for Pass, plus Document includes control keys (or other) for the demo
+| As for Merit, plus Document reflects on the development
+| As Distinction, plus the reflection is clear, concise and insightful
 
-| TODO
-| TODO
-| TODO
-| TODO
-| TODO
-| TODO
+| Alternative platform implementation
+| 80%
+| The program runs on the alternative platform with at least model loading/displaying and particle effects
+| As for Pass, plus Skelatal animation works
+| As for Merit, plus performance is good - at least 30 fps consistently
+| As Distinction, plus other advanced graphics features have been implemented (from assignment 01 or others)
 
 |===

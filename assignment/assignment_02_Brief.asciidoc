@@ -1,17 +1,93 @@
 = Advanced Graphics Assignment 02 Brief 2016-17
-shearer12345
+John Shearer <jshearer@lincoln.ac.uk>
 
 :imagesdir: ./assets/
 :revealjs_customtheme: "reveal.js/css/theme/white.css"
 :source-highlighter: highlightjs
 
-[.clearfix]
---
-[.left]
-image::Chuckie_Egg_on_BBC_Micro.jpg[height=288]
+* The assignment aims to assess practical capability in targeting Graphics programs on to alternative platforms
+* The specific assignment and its requirements are detailed below.
+* The CRG is in the <<assignment_02_CRG.asciidoc#, CRG>> document.
 
-[.right]
-image::Pac-man.png[height=288]
---
 
-TODO
+== Graphics Features - summary
+
+* The assignment will use the modern programmable graphics pipeline, but not strictly constrained to a version
+* You will choose an alternative platform to target. Options include:
+  ** RaspberryPi (1, 2 or 3)
+  ** VR headset (e.g. Oculus Rift, HTC Vive)
+  ** WebGL (via Emscripten), or port to Javascript (or similar (coffeeScript))
+  ** Android (from C++, or Java)
+  ** iOS (from C++, or objective-C, or Swift) (NOTE: you'll need your own OS X machine for this)
+  ** others after consultation with {author}
+
+
+NOTE: some hardware features may not exist on all platforms, and alternative platforms may have other hardware/software/OS differences
+
+* The assignment is a technical showcase, rather than a (complete) game
+
+* Your program should be useable with mouse and keyboard on a PC-like machine, or through using touch on other devices
+
+== Submission
+
+* Submit to Blackboard
+  ** a PDF of your document
+  ** your supporting zip file, including the video, as specified in the following
+
+== PDF Documentation
+
+* Submit to Blackboard
+  ** summary document of features implemented, with screenshots of each (or photos on mobile platforms, if you prefer)
+  ** discussion of features from assignment 01 that were challenging on the alternative platform, with rationale for those found to be impossible and possible alternative approaches for them
+  ** reflection on the development process
+  ** at least four *photographs* of your game running on an alternative platform
+
+== Supporting content for your submission (required)
+
+* Submit to Blackboard, a single *.zip* file containing:
+  ** all your C++ source code (or alternative language if you've ported source to another language)
+  ** all your shader source code (if not in your C++ source)
+  ** files sufficient to create a working build environment (e.g. conan.io files, cmake files)
+  ** all your assets (models, textures)
+  ** a compiled executable, or similar (platform dependent)
+  ** a video of your program in action on the alternative platform (at least 30 seconds long; at a good quality (it may be phone camera video on appropriate platforms)
+    *** use https://obsproject.com/[OBS], http://www.fraps.com/[fraps], or other tools of your choice
+    *** the video should show all the features implemented
+
+== Languages / Toolkit (what you can use)
+
+* If using C/C++
+  ** You *MUST* use appropriate support libraries:
+    ** SDL2, SDL2_image, SDL2_ttf
+    ** GLEW
+    ** GLM
+    ** ASSIMP
+    ** Check with {author} ({email}) for any others
+* If porting to another language, you can use any appropriate libraries
+  ** subject to constraints following
+
+== Languages / Toolkit (what you can use) 2
+
+* You *MUST* makes the calls into OpenGL yourself
+* You **CANNOT** use **ANY** tutorial code from the web, even if you cite it - you must write the code
+* You **CANNOT** use an existing object-oriented wrapper (e.g. oglplus)
+  ** but you can write and use your own if you like ...
+* You **CANNOT** use a graphics engine (e.g. Ogre3D, Irrlicht, Three.js)
+* You **CANNOT** use a games engine (e.g. Unity)
+* If in doubt - **ASK**
+
+== Feedback
+
+* You will receive written feedback on Blackboard, as well as verbal feedback during development of your program.
+
+== Video
+
+* Your video will also be valuable to yourself as portfolio work
+* It will also be valuable to the School
+  ** to illustrate to students in following years what they'll be doing in the module
+  ** to enhance recruitment and visibility of the School
+  ** to support external examiners in seeing what your assignment looked like, without having to run code
+
+== Questions
+
+If you have questions please contact {author} ({email})
