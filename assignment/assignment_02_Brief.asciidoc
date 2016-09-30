@@ -1,5 +1,12 @@
-= Advanced Graphics Assignment 02 Brief 2016-17
-John Shearer <jshearer@lincoln.ac.uk>
+:author: John Shearer
+:doctitle: Advanced Graphics Assignment 02 Brief 2016-17
+ifdef::backend-pdf[:notitle:]
+ifdef::backend-pdf[]
+[discrete]
+= {doctitle}
+endif::[]
+
+:email: jshearer@lincoln.ac.uk
 
 :imagesdir: ./assets/
 :revealjs_customtheme: "reveal.js/css/theme/white.css"
