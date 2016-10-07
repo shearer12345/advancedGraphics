@@ -9,5 +9,6 @@ shearer12345
 == List of Lectures 1
 
 . link:lecture01_introduction.html[Introduction]
+. link:lecture02_buildSystem_handsOn.html[buildSystem_handsOn]
 
 == Future

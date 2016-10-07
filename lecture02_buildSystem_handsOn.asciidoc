@@ -1,0 +1,203 @@
+= Build System - hands on
+:imagesdir: assets
+:revealjs_history: true
+:examplesdir: examples
+
+== Assembling a toolset
+
+* {cpp} (required)
+* Conan.io (required)
+* git (recommended!!)
+
+== Assembling a toolset 2
+
+* SDL2 (required)
+  ** Windowing
+  ** GL context
+  ** input handling
+* GLM (required)
+* GLEW (required)
+
+== Assembling a toolset 3
+
+* stb_image (recommended!!)
+  ** texture/image loading
+  ** SDL2_image has no Conan package
+* SDL2_ttf (recommended!!)
+  ** text and fonts
+* Assimp (recommended!!)
+  ** model loading
+
+== Let's do some hands-on
+
+== Prerequisite Software
+
+* *conan* installed (https://conan.io)
+* *cmake* installed (https://cmake.org/)
+* some compiler/IDE for you system
+  ** e.g. Visual Studio 2015
+  ** e.g. http://www.codeblocks.org/[Code::Blocks]
+
+== Prerequisite Files
+
+* `main.cpp` or other `cpp` file that contains our entry point
+  ** could be multiple files
+  ** could have multiple entry points - multiple projects
+* `conanfile.txt` in the root of your project
+  ** describing (to conan) which libraries your project needs
+* `CMakeLists.txt` in the root of your project
+  ** describing (to cmake) how to create a Build System
+  ** e.g. what we want cmake to put in our Visual Studio Solution
+
+== `conanfile.txt`
+
+* has 4 possible sections, see http://docs.conan.io/en/latest/manage_deps/conanfile_txt.html[conan docs]:
+[arabic]
+  .. `[requires]`
+  .. `[options]`
+  .. `[generators]`
+  .. `[imports]`
+
+
+=== `[requires]`
+
+* the required dependencies, for each four aspects:
+[arabic]
+  .. the `name` - e.g. `SDL2`
+  .. the `version` - e.g. `2.0.4`
+  .. the `owner` - e.g. `lasote`
+    *** who owns the package, not the library
+    *** `lasote` is one of the main conan developers
+  .. the `channel` - e.g. `stable`
+    *** each package can have multiple channels
+
+=== `[options]`
+
+* package specific configuration
+* we can pass some information to each package about how we want to use it
+  ** for example, to the SDL2 package we can choose between a *static* or *shared* library
+
+
+=== `[generators]`
+
+* Conan not only obtains packages, but also can tell "post-conan" tools about those packages
+* For example:
+  ** where the libraries are
+  ** which libraries to link to
+* Conan can provide this information in a variety of formats - to various tools
+
+=== `[generators]` 2
+
+`txt`:: generates a human-readable `conanbuildinfo.txt` file
+`cmake`:: generates `conanbuildinfo.cmake` - use from a `CMakeList.txt` file
+`xcode`:: generates `conanbuildinfo.xcconfig` - import into XCode
+`visual_studio`:: generates `conanbuildinfo.props`  - import into Visual Studio
+
+NOTE: for both `xcode` and `visual_studio` you'll still need to make a "Solution" or equivalent - Alternatively, you can use `cmake` to generate a "Solution" for you
+
+=== `[imports]`
+
+* Define which shared libraries to copy and where to
+  ** usually you'll need for each platform
+
+== Which libraries do we need?
+
+* We'll put them in our `conanfile.txt`
+* ???
+
+== Sample `conanfile.txt`
+
+[source, conan]
+.buildSystem/conanfile.txt
+----
+include::{examplesdir}/buildSystem/conanfile.txt[]
+----
+
+== Using Conan
+
+. Start a command shell/console/terminal
+  ** gitbash, for example
+. `mkdir build && cd build`
+. `conan install ..` #ask conan to install packages listed in the parent directory (in conanfile.txt)
+
+* we're doing "out-of-source" build - so all the build files are in their own directory
+  ** which we can remove at any time and reconstruct
+  ** best-practice
+
+== Using Conan without a `conanfile.txt`
+
+* You can ask Conan to install a package directly, and then just use it how you like
+  ** `conan install SDL2/2.0.4@lasote/stable`
+  ** a `conanfile.txt` is generally better practice
+  ** but perhaps you're experimenting, or just need the binaries
+
+== Configurations
+
+* Conan, when it first runs, http://docs.conan.io/en/latest/getting_started.html#building-with-other-configurations[detects your system] and sets up a default configuration
+* The configuration ncludes things such as:
+  ** your architecture
+  ** your compiler and compiler version
+  ** your OS
+  ** Release or Debug
+* You can override the defaults:
+  ** at the command line
+  ** in `~/.conan/conan.conf` - in your user space
+
+== Looking at a `conanfile.py` for existing Packages
+
+* Each Conan Package is defined (mainly) with a `conanfile.py`
+  ** this is much like a `conanfile.txt` but in Python
+  ** have a look a some of these to see how they work
+    *** really useful for debug Conan if you need to
+
+== Sample `main.cpp`
+
+[source, cmake]
+.buildSystem/main.cpp
+----
+include::{examplesdir}/buildSystem/main.cpp[]
+----
+
+== `CMakeLists.txt`
+
+* Has a huge amount of features
+  ** do manage highly complex builds
+  ** most we won't use
+  ** read the https://cmake.org/documentation/[documentation] for more
+
+=== Sample `CMakeLists.txt`
+
+NOTE: Be careful with capitalisation - computers care
+
+[source, cmake]
+.buildSystem/CMakeLists.txt
+----
+include::{examplesdir}/buildSystem/CMakeLists.txt[]
+----
+
+=== Using CMake
+
+. Start a command shell/console/terminal
+  ** gitbash, for example
+. `cmake .. -G "Visual Studio 14 Win64"`
+. `cmake --build . --config Release` #ask cmake to build in Release mode
+  ** OR load the Visual Studio solutin (.sln) in the build directory, and build from the UI
+. `./bin/conanTest.exe`cd
+  ** OR run from Visual Studio (F5). WARNING: you'll likely get a console window that immediately exits
+
+== Usage - summary
+
+. Start a command shell/console/terminal
+  ** gitbash, for example
+. `mkdir build && cd build`
+. `conan install ..`
+. `cmake .. -G "Visual Studio 14 Win64"`
+. `cmake --build . --config Release`
+  ** OR load the Visual Studio solutin (.sln) in the build directory, and build from the UI
+. `./bin/conanTest.exe`cd
+  ** OR run from Visual Studio (F5). WARNING: you'll likely get a console window that immediately exits
+
+== Automation
+
+* We could (*should*) automate these steps
+  ** batch/bash scripts
