@@ -5,6 +5,9 @@ SDL2/2.0.4@lasote/stable
 ##Texture/Image Loading
 #stb_image/2.12@dsobczyk/testing
 
+##TrueType fonts
+#SDL2_ttf/2.0.14@lasote/ci
+
 ## OpenGL
 #glew/2.0.0@coding3d/stable
 #glm/0.9.8.0@TimSimpson/testing
@@ -13,6 +16,7 @@ SDL2/2.0.4@lasote/stable
 
 [options]
 SDL2:shared=True #False
+SDL2_ttf:shared=True #False
 
 [generators]
 cmake
