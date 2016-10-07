@@ -1,0 +1,92 @@
+:author: John Shearer
+:doctitle: Advanced Graphics Assignment 01 Brief 2016-17
+ifdef::backend-pdf[:notitle:]
+ifdef::backend-pdf[]
+[discrete]
+= {doctitle}
+endif::[]
+
+:email: jshearer@lincoln.ac.uk
+
+
+
+:imagesdir: ./assets/
+:revealjs_customtheme: "reveal.js/css/theme/white.css"
+:source-highlighter: highlightjs
+
+* The assignment aims to assess practical capability in writing Advanced Graphics programs
+* The specific assignment and its requirements are detailed below.
+* The CRG is in the <<assignment_01_CRG.asciidoc#, CRG>> document.
+
+== Graphics Features - summary
+
+* The assignment will use the modern programmable graphics pipeline (i.e. OpenGL 3.1+)
+  ** Some features may need higher versions of OpenGL
+
+* The assignment is a technical showcase, rather than a (complete) game
+
+* Your program should be useable with mouse and keyboard on a PC
+
+== Submission
+
+* Submit to Blackboard
+  ** a PDF of your document
+  ** your supporting zip file, including the video, as specified in the following
+
+== PDF Documentation
+
+* Submit to Blackboard
+  ** summary document of features implemented, with screenshots of each
+  ** reflection on the development process
+  ** at least four screenshots of your game running on PC
+
+== Supporting content for your submission (required)
+
+* Submit to Blackboard, a single *.zip* file containing:
+  ** all your C++ source code
+  ** all your shader source code (if not in your C++ source)
+  ** files sufficient to create a working build environment (e.g. conan.io files, cmake files)
+  ** all your assets (models, textures)
+  ** a compiled, running executable (for PC) (it doesn't need to be able to run outside the IDE)
+  ** a video of your program in action (for PC) (at least 30 seconds long; at 1920x1080)
+    *** use https://obsproject.com/[OBS], http://www.fraps.com/[fraps], or other tools of your choice
+    *** the video should show all the features implemented
+
+== Languages / Toolkit (what you can use)
+
+* You *MUST* use C/C++
+* You *MUST* makes the calls into OpenGL yourself
+* You *MUST* use appropriate support libraries:
+  ** SDL2, SDL2_image, SDL2_ttf
+  ** GLEW
+  ** GLM
+  ** ASSIMP
+  ** Check with {author} ({email}) for any others
+* You **CANNOT** use **ANY** tutorial code from the web, even if you cite it - you must write the code
+* You **CANNOT** use an existing object-oriented wrapper (e.g. oglplus)
+  ** but you can write and use your own if you like ...
+* You **CANNOT** use a graphics engine (e.g. Ogre3D, Irrlicht, Three.js)
+* You **CANNOT** use a games engine (e.g. Unity)
+* If in doubt - **ASK**
+
+== Demo
+
+* The assignment will be assessed through the submitted work, but we'll also do an **in-class demonstration** to the group
+* This will take place in the **first workshop session following the submission deadline**
+* Demo-ing your work is *standard industry practice*
+
+== Feedback
+
+* you will receive written feedback on Blackboard, as well as verbal feedback during development of your program and in later workshops
+
+== Video
+
+* Your video will also be valuable to yourself as portfolio work
+* It will also be valuable to the School
+  ** to illustrate to students in following years what they'll be doing in the module
+  ** to enhance recruitment and visibility of the School
+  ** to support external examiners in seeing what your assignment looked like, without having to run code
+
+== Questions
+
+If you have questions please contact {author} ({email})
