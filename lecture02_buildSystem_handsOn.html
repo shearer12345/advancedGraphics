@@ -5,8 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.5">
-<meta name="author" content="shearer12345">
-<title>Advanced Graphics</title>
+<title>Build System - hands on</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -421,31 +420,724 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>Advanced Graphics</h1>
-<div class="details">
-<span id="author" class="author">shearer12345</span><br>
-</div>
+<h1>Build System - hands on</h1>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_list_of_lectures_1">List of Lectures 1</h2>
+<h2 id="_assembling_a_toolset">Assembling a toolset</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>C++ (required)</p>
+</li>
+<li>
+<p>Conan.io (required)</p>
+</li>
+<li>
+<p>git (recommended!!)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_assembling_a_toolset_2">Assembling a toolset 2</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>SDL2 (required)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Windowing</p>
+</li>
+<li>
+<p>GL context</p>
+</li>
+<li>
+<p>input handling</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>GLM (required)</p>
+</li>
+<li>
+<p>GLEW (required)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_assembling_a_toolset_3">Assembling a toolset 3</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>stb_image (recommended!!)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>texture/image loading</p>
+</li>
+<li>
+<p>SDL2_image has no Conan package</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>SDL2_ttf (recommended!!)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>text and fonts</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Assimp (recommended!!)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>model loading</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_let_s_do_some_hands_on">Let&#8217;s do some hands-on</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_prerequisite_software">Prerequisite Software</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>conan</strong> installed (<a href="https://conan.io" class="bare">https://conan.io</a>)</p>
+</li>
+<li>
+<p><strong>cmake</strong> installed (<a href="https://cmake.org/" class="bare">https://cmake.org/</a>)</p>
+</li>
+<li>
+<p>some compiler/IDE for you system</p>
+<div class="ulist">
+<ul>
+<li>
+<p>e.g. Visual Studio 2015</p>
+</li>
+<li>
+<p>e.g. <a href="http://www.codeblocks.org/">Code::Blocks</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_prerequisite_files">Prerequisite Files</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><code>main.cpp</code> or other <code>cpp</code> file that contains our entry point</p>
+<div class="ulist">
+<ul>
+<li>
+<p>could be multiple files</p>
+</li>
+<li>
+<p>could have multiple entry points - multiple projects</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>conanfile.txt</code> in the root of your project</p>
+<div class="ulist">
+<ul>
+<li>
+<p>describing (to conan) which libraries your project needs</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>CMakeLists.txt</code> in the root of your project</p>
+<div class="ulist">
+<ul>
+<li>
+<p>describing (to cmake) how to create a Build System</p>
+</li>
+<li>
+<p>e.g. what we want cmake to put in our Visual Studio Solution</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="__code_conanfile_txt_code"><code>conanfile.txt</code></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>has 4 possible sections, see <a href="http://docs.conan.io/en/latest/manage_deps/conanfile_txt.html">conan docs</a>:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>[requires]</code></p>
+</li>
+<li>
+<p><code>[options]</code></p>
+</li>
+<li>
+<p><code>[generators]</code></p>
+</li>
+<li>
+<p><code>[imports]</code></p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="__code_requires_code"><code>[requires]</code></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>the required dependencies, for each four aspects:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>the <code>name</code> - e.g. <code>SDL2</code></p>
+</li>
+<li>
+<p>the <code>version</code> - e.g. <code>2.0.4</code></p>
+</li>
+<li>
+<p>the <code>owner</code> - e.g. <code>lasote</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>who owns the package, not the library</p>
+</li>
+<li>
+<p><code>lasote</code> is one of the main conan developers</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>the <code>channel</code> - e.g. <code>stable</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>each package can have multiple channels</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__code_options_code"><code>[options]</code></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>package specific configuration</p>
+</li>
+<li>
+<p>we can pass some information to each package about how we want to use it</p>
+<div class="ulist">
+<ul>
+<li>
+<p>for example, to the SDL2 package we can choose between a <strong>static</strong> or <strong>shared</strong> library</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__code_generators_code"><code>[generators]</code></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Conan not only obtains packages, but also can tell "post-conan" tools about those packages</p>
+</li>
+<li>
+<p>For example:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>where the libraries are</p>
+</li>
+<li>
+<p>which libraries to link to</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Conan can provide this information in a variety of formats - to various tools</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__code_generators_code_2"><code>[generators]</code> 2</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>txt</code></dt>
+<dd>
+<p>generates a human-readable <code>conanbuildinfo.txt</code> file</p>
+</dd>
+<dt class="hdlist1"><code>cmake</code></dt>
+<dd>
+<p>generates <code>conanbuildinfo.cmake</code> - use from a <code>CMakeList.txt</code> file</p>
+</dd>
+<dt class="hdlist1"><code>xcode</code></dt>
+<dd>
+<p>generates <code>conanbuildinfo.xcconfig</code> - import into XCode</p>
+</dd>
+<dt class="hdlist1"><code>visual_studio</code></dt>
+<dd>
+<p>generates <code>conanbuildinfo.props</code>  - import into Visual Studio</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+for both <code>xcode</code> and <code>visual_studio</code> you&#8217;ll still need to make a "Solution" or equivalent - Alternatively, you can use <code>cmake</code> to generate a "Solution" for you
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__code_imports_code"><code>[imports]</code></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Define which shared libraries to copy and where to</p>
+<div class="ulist">
+<ul>
+<li>
+<p>usually you&#8217;ll need for each platform</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_which_libraries_do_we_need">Which libraries do we need?</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>We&#8217;ll put them in our <code>conanfile.txt</code></p>
+</li>
+<li>
+<p>???</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sample_code_conanfile_txt_code">Sample <code>conanfile.txt</code></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title">buildSystem/conanfile.txt</div>
+<div class="content">
+<pre class="highlight"><code class="language-conan" data-lang="conan">[requires]
+##SDL
+SDL2/2.0.4@lasote/stable
+
+##Texture/Image Loading
+#stb_image/2.12@dsobczyk/testing
+
+##TrueType fonts
+#SDL2_ttf/2.0.14@lasote/ci
+
+## OpenGL
+#glew/2.0.0@coding3d/stable
+#glm/0.9.8.0@TimSimpson/testing
+##ASSIMP - no package as of 2016_10_07
+
+
+[options]
+SDL2:shared=True #False
+SDL2_ttf:shared=True #False
+
+[generators]
+cmake
+
+[imports]</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_conan">Using Conan</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><a href="lecture01_introduction.html">Introduction</a></p>
+<p>Start a command shell/console/terminal</p>
+<div class="ulist">
+<ul>
+<li>
+<p>gitbash, for example</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><a href="lecture02_buildSystem_handsOn.html">buildSystem_handsOn</a></p>
+<p><code>mkdir build &amp;&amp; cd build</code></p>
+</li>
+<li>
+<p><code>conan install ..</code> #ask conan to install packages listed in the parent directory (in conanfile.txt)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>we&#8217;re doing "out-of-source" build - so all the build files are in their own directory</p>
+<div class="ulist">
+<ul>
+<li>
+<p>which we can remove at any time and reconstruct</p>
+</li>
+<li>
+<p>best-practice</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_future">Future</h2>
+<h2 id="_using_conan_without_a_code_conanfile_txt_code">Using Conan without a <code>conanfile.txt</code></h2>
 <div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>You can ask Conan to install a package directly, and then just use it how you like</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>conan install SDL2/2.0.4@lasote/stable</code></p>
+</li>
+<li>
+<p>a <code>conanfile.txt</code> is generally better practice</p>
+</li>
+<li>
+<p>but perhaps you&#8217;re experimenting, or just need the binaries</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configurations">Configurations</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Conan, when it first runs, <a href="http://docs.conan.io/en/latest/getting_started.html#building-with-other-configurations">detects your system</a> and sets up a default configuration</p>
+</li>
+<li>
+<p>The configuration ncludes things such as:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>your architecture</p>
+</li>
+<li>
+<p>your compiler and compiler version</p>
+</li>
+<li>
+<p>your OS</p>
+</li>
+<li>
+<p>Release or Debug</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>You can override the defaults:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>at the command line</p>
+</li>
+<li>
+<p>in <code>~/.conan/conan.conf</code> - in your user space</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_looking_at_a_code_conanfile_py_code_for_existing_packages">Looking at a <code>conanfile.py</code> for existing Packages</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Each Conan Package is defined (mainly) with a <code>conanfile.py</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>this is much like a <code>conanfile.txt</code> but in Python</p>
+</li>
+<li>
+<p>have a look a some of these to see how they work</p>
+<div class="ulist">
+<ul>
+<li>
+<p>really useful for debug Conan if you need to</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sample_code_main_cpp_code">Sample <code>main.cpp</code></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title">buildSystem/main.cpp</div>
+<div class="content">
+<pre class="highlight"><code class="language-cmake" data-lang="cmake">#include &lt;iostream&gt;
+#include "SDL.h"
 
+int main(int argc, char* argv[])
+{
+	//send HelloWorld! to console output
+	std::cout &lt;&lt; "HelloWorld!\n";
+
+	if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
+		SDL_LogCritical(SDL_LOG_CATEGORY_APPLICATION,
+			"SDL_Init Error: %s\n", SDL_GetError());
+		return 1;
+	}
+	SDL_Log("SDL initialised OK!\n");
+
+	return 0;
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="__code_cmakelists_txt_code"><code>CMakeLists.txt</code></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Has a huge amount of features</p>
+<div class="ulist">
+<ul>
+<li>
+<p>do manage highly complex builds</p>
+</li>
+<li>
+<p>most we won&#8217;t use</p>
+</li>
+<li>
+<p>read the <a href="https://cmake.org/documentation/">documentation</a> for more</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_sample_code_cmakelists_txt_code">Sample <code>CMakeLists.txt</code></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Be careful with capitalisation - computers care
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">buildSystem/CMakeLists.txt</div>
+<div class="content">
+<pre class="highlight"><code class="language-cmake" data-lang="cmake">project(ConanTest)
+cmake_minimum_required(VERSION 2.8.12)
+
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup()
+
+add_executable(conanTest main.cpp)
+target_link_libraries(conanTest ${CONAN_LIBS})
+
+set_property(DIRECTORY PROPERTY VS_STARTUP_PROJECT "conanTest")</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_cmake">Using CMake</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Start a command shell/console/terminal</p>
+<div class="ulist">
+<ul>
+<li>
+<p>gitbash, for example</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>cmake .. -G "Visual Studio 14 Win64"</code></p>
+</li>
+<li>
+<p><code>cmake --build . --config Release</code> #ask cmake to build in Release mode</p>
+<div class="ulist">
+<ul>
+<li>
+<p>OR load the Visual Studio solutin (.sln) in the build directory, and build from the UI</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>`./bin/conanTest.exe`cd</p>
+<div class="ulist">
+<ul>
+<li>
+<p>OR run from Visual Studio (F5). WARNING: you&#8217;ll likely get a console window that immediately exits</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_usage_summary">Usage - summary</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Start a command shell/console/terminal</p>
+<div class="ulist">
+<ul>
+<li>
+<p>gitbash, for example</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>mkdir build &amp;&amp; cd build</code></p>
+</li>
+<li>
+<p><code>conan install ..</code></p>
+</li>
+<li>
+<p><code>cmake .. -G "Visual Studio 14 Win64"</code></p>
+</li>
+<li>
+<p><code>cmake --build . --config Release</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>OR load the Visual Studio solutin (.sln) in the build directory, and build from the UI</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>`./bin/conanTest.exe`cd</p>
+<div class="ulist">
+<ul>
+<li>
+<p>OR run from Visual Studio (F5). WARNING: you&#8217;ll likely get a console window that immediately exits</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_automation">Automation</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>We could (<strong>should</strong>) automate these steps</p>
+<div class="ulist">
+<ul>
+<li>
+<p>batch/bash scripts</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -454,21 +1146,5 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 Last updated 2016-10-07 15:18:10 BST
 </div>
 </div>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  messageStyle: "none",
-  tex2jax: {
-    inlineMath: [["\\(", "\\)"]],
-    displayMath: [["\\[", "\\]"]],
-    ignoreClass: "nostem|nolatexmath"
-  },
-  asciimath2jax: {
-    delimiters: [["\\$", "\\$"]],
-    ignoreClass: "nostem|noasciimath"
-  },
-  TeX: { equationNumbers: { autoNumber: "none" } }
-});
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.0/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
 </body>
 </html>
