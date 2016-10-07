@@ -1,0 +1,20 @@
+[requires]
+##SDL
+SDL2/2.0.4@lasote/stable
+
+##Texture/Image Loading
+#stb_image/2.12@dsobczyk/testing
+
+## OpenGL
+#glew/2.0.0@coding3d/stable
+#glm/0.9.8.0@TimSimpson/testing
+##ASSIMP - no package presently
+
+
+[options]
+SDL2:shared=True #False
+
+[generators]
+cmake
+
+[imports]
