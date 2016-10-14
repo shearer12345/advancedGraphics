@@ -5,8 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.5">
-<meta name="author" content="shearer12345">
-<title>Advanced Graphics</title>
+<title>Model Loading</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -421,46 +420,556 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>Advanced Graphics</h1>
-<div class="details">
-<span id="author" class="author">shearer12345</span><br>
-</div>
+<h1>Model Loading</h1>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_list_of_lectures_1">List of Lectures 1</h2>
+<h2 id="_what_is_a_model_in_computer_graphics">What is a Model, in Computer Graphics?</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>What does it represent?</p>
+</li>
+<li>
+<p>What is in model files?</p>
+</li>
+<li>
+<p>What information/data to we need?</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_what_is_a_model_2">What is a Model? 2</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Meshes / Geometry</p>
+<div class="ulist">
+<ul>
+<li>
+<p>set of Vertices</p>
+</li>
+<li>
+<p>set of Normals</p>
+</li>
+<li>
+<p>set of UV coordinates</p>
+</li>
+<li>
+<p>set of faces (tris, quads, generic polys)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_what_is_a_model_3">What is a Model? 3</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Materials</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Colours (per Vertex/face)</p>
+</li>
+<li>
+<p>Textures (texture information     and UV map)</p>
+</li>
+<li>
+<p>Light properties (Diffuse, Specular, Ambient)</p>
+</li>
+<li>
+<p>Other surface properties (Bump maps)</p>
+</li>
+<li>
+<p>Shaders</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_what_is_a_model_3_2">What is a Model? 3</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Animations</p>
+<div class="ulist">
+<ul>
+<li>
+<p>key-frames</p>
+</li>
+<li>
+<p>skinning data</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Model Node Hierarchy</p>
+</li>
+<li>
+<p>Scale/Units</p>
+</li>
+<li>
+<p>Metadata</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_else_can_be_in_a_model_file">What else can be in a model file?</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Perhaps an entire Scene</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Multiple models</p>
+</li>
+<li>
+<p>Cameras</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_model_formats">Model Formats</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>What formats do can you name?</p>
+</li>
+<li>
+<p>What formats do asset generating tools export to?</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_model_formats_a_short_incomplete_list">Model formats, a short, incomplete list</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><a href="lecture01_introduction.html">Introduction</a></p>
+<p><code>.3ds</code> - 3D Studio</p>
 </li>
 <li>
-<p><a href="lecture02_buildSystem_handsOn.html">buildSystem_handsOn</a></p>
+<p><code>.blen</code> - Blender</p>
 </li>
 <li>
-<p><a href="lecture03_modelLoading.html">Model Loading</a> #Oct14th</p>
+<p><code>.dae</code> - COLLADA</p>
 </li>
 <li>
-<p><a href="lecture04_skeletalAnimation.html">Skeletal Animation (To Release)</a> #Oct 21st</p>
+<p><code>.dxf</code> - AutoCAD</p>
 </li>
 <li>
-<p><a href="lecture05_particleEffects.html">Particle Effect (To Release)</a> #Oct 28th</p>
+<p><code>.fbx</code> - Autodesk exchange</p>
 </li>
 <li>
-<p><a href="lecture06_shadows.html">Shadows (To Release)</a> #Nov 4th</p>
+<p><code>.obj</code> - Wavefront Obj</p>
 </li>
 <li>
-<p><a href="lecture07_tesselationShaders.html">Tesselation Shaders (To Release)</a> #Nov 11th</p>
+<p><code>.ply</code> - Polygon file format</p>
+</li>
+<li>
+<p><code>.skp</code> - Google sketchup</p>
+</li>
+<li>
+<p><code>.stl</code> - STereoLithography</p>
+</li>
+<li>
+<p><code>.tri</code></p>
+</li>
+<li>
+<p><code>.v3d</code></p>
+</li>
+<li>
+<p><code>.wrl</code> - VRML</p>
+</li>
+<li>
+<p><code>.x3d</code></p>
+</li>
+<li>
+<p><code>.x3dv</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://edutechwiki.unige.ch/en/3D_file_format" class="bare">http://edutechwiki.unige.ch/en/3D_file_format</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/List_of_file_formats#3D_graphics" class="bare">https://en.wikipedia.org/wiki/List_of_file_formats#3D_graphics</a></p>
+</li>
+</ul>
+</div>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_future">Future</h2>
+<h2 id="_text_vs_binary_formats">Text vs. Binary formats</h2>
 <div class="sectionbody">
-
+<div class="ulist">
+<ul>
+<li>
+<p>Text formats have some pros and cons in comparison to binary formats</p>
+</li>
+<li>
+<p>???</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_text_formats">Text formats</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>human-readable</p>
+</li>
+<li>
+<p>easy to debug</p>
+</li>
+<li>
+<p>LARGE and SLOW</p>
+<div class="ulist">
+<ul>
+<li>
+<p>needs lots of parsing</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Can</strong>, sometimes, compress well</p>
+</li>
+<li>
+<p>lots of standard formats (JSON, XML)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_binary_formats">Binary formats:</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>non-human readable</p>
+</li>
+<li>
+<p>hard to debug</p>
+</li>
+<li>
+<p>SMALL and FAST</p>
+<div class="ulist">
+<ul>
+<li>
+<p>need little (possibly no) parsing; need no text to binary conversion</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>2153253232</code> (10 bytes) &#8658; <code>0x80580970</code> (4 bytes, 32 bit)</p>
+</li>
+<li>
+<p><code>3.1415927</code> (9 bytes) &#8658; <code>0x40490fdb</code> (4 bytes, 32 bits)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>can load directly into memory</p>
+</li>
+<li>
+<p>could, perhaps, bypass the CPU and main RAM entirely (DMA)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Could still compress</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_a_look_at_code_obj_code">A look at <code>.obj</code></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Wavefront_.obj_file">OBJ file format</a></p>
+</li>
+<li>
+<p>Open (no licensing issues)</p>
+</li>
+<li>
+<p>Using by <strong>many</strong> 3D graphics application vendors</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A pretty universally accepted format</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Coordinates have no units</p>
+<div class="ulist">
+<ul>
+<li>
+<p>file can contain scale information in a comment line</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="__code_obj_code_example"><code>.obj</code> example</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-obj" data-lang="obj"># List of geometric vertices, with (x,y,z[,w]) coordinates, w is optional and defaults to 1.0.
+v 0.123 0.234 0.345 1.0
+v ...
+...
+# List of texture coordinates, in (u, v [,w]) coordinates, these will vary between 0 and 1, w is optional and defaults to 0.
+vt 0.500 1 [0]
+vt ...
+...
+# List of vertex normals in (x,y,z) form; normals might not be unit vectors.
+vn 0.707 0.000 0.707
+vn ...
+...
+# Parameter space vertices in ( u [,v] [,w] ) form; free form geometry statement ( see below )
+vp 0.310000 3.210000 2.100000
+vp ...
+...
+# Polygonal face element (see below)
+f 1 2 3
+f 3/1 4/2 5/3
+f 6/4/1 3/5/3 7/6/5
+f 7//1 8//2 9//3
+f ...
+...</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_a_look_at_code_stl_code">A look at <code>.stl</code></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/STL_(file_format)">STL file format</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_a_look_at_code_ply_code">A look at <code>.ply</code></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/PLY_(file_format)">PLY file format</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_connecting_to_graphics_opengl">Connecting to Graphics / OpenGL</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>What data is important to have in a binary representation?</p>
+<div class="ulist">
+<ul>
+<li>
+<p>???</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_connecting_to_graphics_opengl_2">Connecting to Graphics / OpenGL</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>What data is important to have in a binary representation?</p>
+<div class="ulist">
+<ul>
+<li>
+<p>BIG data</p>
+<div class="ulist">
+<ul>
+<li>
+<p>vertex data (position, colour, UV, etc.)</p>
+</li>
+<li>
+<p>vertex index data</p>
+</li>
+<li>
+<p>texture data</p>
+</li>
+<li>
+<p>animation data</p>
+</li>
+<li>
+<p>skinning data</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_binary_data_is_graphics_appropriate_formats">Binary data is graphics-appropriate formats</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Ideally, we&#8217;d like the data <strong>exactly</strong> the same when:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>in GPU-memory</p>
+</li>
+<li>
+<p>in a file</p>
+</li>
+<li>
+<p>on the wire (network)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="quoteblock">
+<blockquote>
+optimized for download speed or fast loading at runtime
+</blockquote>
+<div class="attribution">
+&#8212; https://github.com/KhronosGroup/glTF/blob/master/specification/README.md#motivation[glTF Specification (Motivation)]<br>
+<cite>Khronos Group</cite>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_transmission_format_gltf">Transmission Format (glTF)</h2>
+<div class="sectionbody">
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>The GL Transmission Format (glTF) is a runtime asset delivery format for GL APIs: WebGL, OpenGL ES, and OpenGL. glTF bridges the gap between 3D content creation tools and modern GL applications by providing an efficient, extensible, interoperable format for the transmission and loading of 3D content.</p>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; glTF Specification (Introduction)<br>
+<cite>Khronos Group</cite>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_gltf_closer_look">glTF - closer look</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Vendor and runtime neutral format</p>
+</li>
+<li>
+<p>Can be loaded and rendered with minimal processing</p>
+</li>
+<li>
+<p>Use a JSON scene description (easily parseable), plus binary files for:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>geometry</p>
+</li>
+<li>
+<p>animations</p>
+</li>
+<li>
+<p>and other rich data</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Binary data can be loaded directly into GL buffers without additional parsing or other manipulation</p>
+</li>
+<li>
+<p>glTF can faithfully preserve full hierarchical scenes with nodes, meshes, cameras, materials, and animations</p>
+</li>
+<li>
+<p>glTF enables efficient delivery and fast loading</p>
+</li>
+<li>
+<p>source:  <a href="https://github.com/KhronosGroup/glTF/blob/master/specification/README.md#introduction">glTF introduction</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_gltf_basics">glTF Basics</h3>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>glTF assets are JSON files plus supporting external data. Specifically, a glTF asset is represented by:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A JSON-formatted file (.gltf) containing a full scene description: node hierarchy, materials, cameras, as well as descriptor information for meshes, shaders, animations, and other constructs</p>
+</li>
+<li>
+<p>Binary files (.bin) containing geometry and animation data, and other buffer-based data</p>
+</li>
+<li>
+<p>Image files (.jpg, .png, etc.) for textures</p>
+</li>
+<li>
+<p>GLSL text files (.glsl) for GLSL shader source code</p>
+</li>
+</ul>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; glTF Specification (glTF Basics)<br>
+<cite>Khronos Group</cite>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -469,21 +978,5 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 Last updated 2016-10-14 15:39:51 BST
 </div>
 </div>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  messageStyle: "none",
-  tex2jax: {
-    inlineMath: [["\\(", "\\)"]],
-    displayMath: [["\\[", "\\]"]],
-    ignoreClass: "nostem|nolatexmath"
-  },
-  asciimath2jax: {
-    delimiters: [["\\$", "\\$"]],
-    ignoreClass: "nostem|noasciimath"
-  },
-  TeX: { equationNumbers: { autoNumber: "none" } }
-});
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.0/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
 </body>
 </html>
