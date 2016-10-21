@@ -1,0 +1,151 @@
+= Skeletal Animation
+:imagesdir: assets
+:revealjs_history: true
+:examplesdir: examples
+
+== What is Skeletal Animation?
+
+* ???
+
+=== What is Skeletal Animation? 2
+
+* Giving the visual impression of an articulated object
+  ** that the surface move under the control of "bones"
+* AKA:
+  ** rigging / skinning
+
+== Skeletal Animation - example
+
+[.stretch]
+video::oLRpnS2HvTs[youtube]
+
+== Compared to moving whole entities around
+
+* We've already been moving whole entities around
+  ** in our vertex shaders
+  ** applying the same transformation to *all* vertices in an mesh/entity
+* We still need to be able to do this
+  ** to locate and oriented our entities in the scen
+* For skeletal animation, we want to *also*, and *first* transform individual (or collections of) vertices with the mesh differently
+
+== Bones
+
+* With skeletal animation, we transform (collections of) vertices associated with a "bone", or "bones"
+* Usually bones are arranged in a hierarchy, but they don't *have* to be
+
+== What information to we need?
+
+* ???
+
+=== What information to we need?
+
+* Mesh
+* A hierarchy of bones
+* A set of weightings between bones and vertices
+* Information about how to move bones over time
+
+=== Mesh
+
+* collection of vertices
+* collection of faces (triangles) connecting those vertices
+* in a default / static pose (bind-pose)
+
+=== A hierarchy of bones
+
+* Bones are usually in a hierarchy
+  ** just like a skeleton
+  ** there isn't a consistent/standard *root* of the hierarchy, some options include:
+    *** back (if no articulated spine)
+    *** some part of the spine
+
+[.stretch]
+image::174px-Gray_111_-_Vertebral_column-coloured.png[title="Vertebral column", alt="Vertebral column", link="https://commons.wikimedia.org/wiki/File:Gray_111_-_Vertebral_column-coloured.png]
+
+=== A hierarchy of Bones 2
+
+* each bone has a *translation* and *rotation* relative to its parent
+  ** bones only rotate
+  ** but rotate around a fixed point, represented by the offset
+* usually combined into a `mat4`
+
+=== A set of weightings between bones and vertices
+
+* each vertex *can* be influenced by more than one bone
+* which bones influence which vertex
+  ** perhaps all bones
+* how much each vertex is influenced by each bones transformation
+  ** AKA blend factor
+
+=== Information about how to move bones over time
+
+* Often a sequence to move the bones through
+  ** from Motion Capture, or an animator
+  ** usually loaded from a model or animation file
+  ** could be calculated dynamically, or hard-coded for testing/development/debugging
+* to cause the animation
+
+== Our job as Graphics programmers
+
+* Our job is to take existing animations and display them
+  ** in general, we would expect the animations, mesh, etc to be created by other parties
+  ** during testing, developing, debug, we may use *programmer-generated* animations
+
+== Calculating the skeletal transformation
+
+* The final position of each vertex (before transformation of the whole entity) is calculated from by summing the results of:
+  ** each bone-transformation multiplied by the weighting for that bone for the present vertex
+* We can (*should*/*must*) do this on the GPU
+  ** in the vertex shader
+
+== Calculating the bone-transformations
+
+* For each bone we're interested in applying its rotation to vertices
+  ** to create transformed vertices
+  ** but the rotation needs to take place around the *towards-root* end of the bone
+
+image::boneSpace.png[title="bone space", alt="bone space", link="http://what-when-how.com/advanced-methods-in-computer-graphics/skeletal-animation-advanced-methods-in-computer-graphics-part-2/"]
+
+=== Calculating the bone-transformations 2
+
+* Recall that to rotate around a point we first have to translate to that point, then apply rotation, then undo the translation
+  ** the translation we need to do is exactly the translation of each bone
+* Depending on our model (loaded from a file), the transformations stored in the file may already be appropriate to use directly
+
+
+
+== Workshop Activities
+
+. Create (hard-coded) a model made up of multiple sections
+  ** start with just 2 sections
+  ** such as a snake
+  ** could even have a rectangular cross-section (i.e. a square snake)
+  image:blenderSnake.jpg[title="blender snake", link="https://www.blend4web.com/en/forums/topic/271/"]
+
+. Make a program that renders this model
+
+. Imagine that you have a single bone, that influences as follows:
+  ** fully (100%) controls one end of your snake (head)
+  ** partially (50%) controls the centre of your snake
+  ** doesn't influence the other end of your snake (tail)
+
+. Simulate the rotation of this bone so it changes over time
+  ** like a pendulum
+
+. Use the bone rotation and translation to make your snake head move
+
+. Use the bone rotation and translation to make your whole snake move appropriately
+  ** the tail shouldn't move
+  ** the middle should move less than the head
+
+
+
+
+
+== Recommended Reading
+
+* https://www.opengl.org/wiki/Skeletal_Animation
+* http://ogldev.atspace.co.uk/www/tutorial38/tutorial38.html
+* http://ephenationopengl.blogspot.co.uk/2012/06/doing-animations-in-opengl.html
+* https://research.ncl.ac.uk/game/mastersdegree/graphicsforgames/skeletalanimation/Tutorial%209%20-%20Skeletal%20Animation.pdf
+* http://what-when-how.com/advanced-methods-in-computer-graphics/skeletal-animation-advanced-methods-in-computer-graphics-part-1/
+* http://what-when-how.com/advanced-methods-in-computer-graphics/skeletal-animation-advanced-methods-in-computer-graphics-part-2/
