@@ -12,7 +12,7 @@ shearer12345
 . link:lecture02_buildSystem_handsOn.html[buildSystem_handsOn]
 . link:lecture03_modelLoading.html[Model Loading]
 . link:lecture04_skeletalAnimation.html[Skeletal Animation]
-. link:lecture05_particleEffects.html[Particle Effect (To Release)] #Oct 28th
+. link:lecture05_particleEffects.html[Particle Effects]
 . link:lecture06_shadows.html[Shadows (To Release)] #Nov 4th
 . link:lecture07_tesselationShaders.html[Tesselation Shaders (To Release)] #Nov 11th
 
