@@ -5,8 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.5">
-<meta name="author" content="shearer12345">
-<title>Advanced Graphics</title>
+<title>Particle Effects</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -421,46 +420,601 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>Advanced Graphics</h1>
-<div class="details">
-<span id="author" class="author">shearer12345</span><br>
-</div>
+<h1>Particle Effects</h1>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_list_of_lectures_1">List of Lectures 1</h2>
+<h2 id="_particle_effects_examples">Particle Effects - examples</h2>
+<div class="sectionbody">
+<div class="imageblock stretch">
+<div class="content">
+<img src="assets/Pi-explosion.jpg" alt="Pi explosion">
+</div>
+</div>
+<div class="sect2">
+<h3 id="_particle_effects_examples_2">Particle Effects - examples 2</h3>
+<div class="imageblock stretch">
+<div class="content">
+<img src="assets/Particle_sys_galaxy.jpg" alt="Particle sys galaxy">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_particle_effects_examples_3">Particle Effects - examples 3</h3>
+<div class="imageblock stretch">
+<div class="content">
+<img src="assets/Particle_sys_fire.jpg" alt="Particle sys fire">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_particle_effects_examples_4">Particle Effects - examples 4</h3>
+<div class="videoblock stretch">
+<div class="title"><a href="https://youtu.be/SgaVCSF4LpM">OpenGL Particle System Demo 1 (AsymmetricArt)</a></div>
+<div class="content">
+<iframe src="https://www.youtube.com/embed/SgaVCSF4LpM?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_particle_effects_examples_5">Particle Effects - examples 5</h3>
+<div class="videoblock stretch">
+<div class="title"><a href="https://youtu.be/vyhCAZ-cdyI">Simulating Particle Effects using OpenGL (Jeremiah van Oosten)</a></div>
+<div class="content">
+<iframe src="https://www.youtube.com/embed/vyhCAZ-cdyI?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_particle_effects_examples_6">Particle Effects - examples 6</h3>
+<div class="videoblock stretch">
+<div class="title"><a href="https://www.youtube.com/watch?v=jwCAsyiYimY">Particle System using compute shader in OpenGL (Stanislaw Eppinger)</a></div>
+<div class="content">
+<iframe src="https://www.youtube.com/embed/jwCAsyiYimY?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_particle_effects_examples_7">Particle Effects - examples 7</h3>
+<div class="videoblock stretch">
+<div class="title"><a href="https://youtu.be/uwUBkEH8fgk">OpenGL GPU Particle System (Ingrater88)</a></div>
+<div class="content">
+<iframe src="https://www.youtube.com/embed/uwUBkEH8fgk?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_particle_effects_examples_8">Particle Effects - examples 8</h3>
+<div class="videoblock strech">
+<div class="title"><a href="https://youtu.be/mh6Z9yzdQFE">OpenGL Particle System: Fire (Salaheddine Essid)</a></div>
+<div class="content">
+<iframe src="https://www.youtube.com/embed/mh6Z9yzdQFE?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_particle_effects_examples_9">Particle Effects - examples 9</h3>
+<div class="videoblock strech">
+<div class="title"><a href="https://youtu.be/rvz1rhvaf1c">OpenGL Particle System: Brownout 3  (Salaheddine Essid)</a></div>
+<div class="content">
+<iframe src="https://www.youtube.com/embed/rvz1rhvaf1c?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_are_particle_effects_used_for">What are particle effects used for?</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>???</p>
+</li>
+<li>
+<p>???</p>
+</li>
+<li>
+<p>???</p>
+</li>
+<li>
+<p>???</p>
+</li>
+<li>
+<p>???</p>
+</li>
+<li>
+<p>???</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_what_are_particle_effects_used_for_2">What are particle effects used for? 2</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Generally, visual-only effects</p>
+</li>
+<li>
+<p>Rarely, impact on game logic</p>
+<div class="ulist">
+<ul>
+<li>
+<p>&#8658; don&#8217;t send dynamic particle data over network in multiplayer scenarios</p>
+</li>
+<li>
+<p>only enough to do the effects</p>
+</li>
+<li>
+<p>doesn&#8217;t matter if non-deterministic</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_are_particle_effects">What are particle effects?</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>AKA Particle Systems</p>
+</li>
+<li>
+<p>Large numbers of simple-geometry objects</p>
+<div class="ulist">
+<ul>
+<li>
+<p>usually cubes, sprites, billboards</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>That behave according to relatively simple rules</p>
+</li>
+<li>
+<p>Usually "die" after some amount of time</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_particle_systems">Particle Systems</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><a href="lecture01_introduction.html">Introduction</a></p>
+<p>Particle Emitters</p>
 </li>
 <li>
-<p><a href="lecture02_buildSystem_handsOn.html">buildSystem_handsOn</a></p>
+<p>Particle Simulation</p>
 </li>
 <li>
-<p><a href="lecture03_modelLoading.html">Model Loading</a></p>
-</li>
-<li>
-<p><a href="lecture04_skeletalAnimation.html">Skeletal Animation</a></p>
-</li>
-<li>
-<p><a href="lecture05_particleEffects.html">Particle Effects</a></p>
-</li>
-<li>
-<p><a href="lecture06_shadows.html">Shadows (To Release)</a> #Nov 4th</p>
-</li>
-<li>
-<p><a href="lecture07_tesselationShaders.html">Tesselation Shaders (To Release)</a> #Nov 11th</p>
+<p>Particle Rendering</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_future">Future</h2>
+<h2 id="_particle_emitters">Particle Emitters</h2>
 <div class="sectionbody">
-
+<div class="ulist">
+<ul>
+<li>
+<p>Add particles to the simulation</p>
+</li>
+<li>
+<p>Frequently based on time (spawn rate)</p>
+</li>
+<li>
+<p>Frequently particles start out in the position of the emitter</p>
+<div class="ulist">
+<ul>
+<li>
+<p>or near by</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_particle_emitters_2">Particle Emitters 2</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Emitter sets each particles properties</p>
+<div class="ulist">
+<ul>
+<li>
+<p>position &amp; velocity</p>
+<div class="ulist">
+<ul>
+<li>
+<p>may be some distribution function related to the emitters direction</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>lifetime</p>
+</li>
+<li>
+<p>colour/visual parametres</p>
+</li>
+<li>
+<p>other physical parametres</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>to give variety to the simulation</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_particle_simulation">Particle Simulation</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Simulate the movement of particles</p>
+</li>
+<li>
+<p>Usually very simple simulation</p>
+</li>
+<li>
+<p>Usually no interactions between particles</p>
+<div class="ulist">
+<ul>
+<li>
+<p>saving high amounts of collision detection and responses</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Usually very simple interactions with the game world</p>
+<div class="ulist">
+<ul>
+<li>
+<p>e.g. none; bounce of "ground"; effected by "wind"</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Usually effected by "gravity"</p>
+</li>
+<li>
+<p>Usually have no impact on the game simulation</p>
+<div class="ulist">
+<ul>
+<li>
+<p>i.e. just visual effects</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_particle_simulation_2">Particle Simulation 2</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Particles frequently only have a position and velocity</p>
+<div class="ulist">
+<ul>
+<li>
+<p>no orientation</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Often simulated on CPU</p>
+<div class="ulist">
+<ul>
+<li>
+<p>and just positions updated to GPU</p>
+</li>
+<li>
+<p>simple p' = p + v*dt</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Usually just send the <strong>position</strong> to the GPU</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_particle_simulation_3">Particle Simulation 3</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Particles simulation can take place on the GPU, through:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="https://www.youtube.com/watch?v=uwUBkEH8fgk">custom GLSL shader work using transform feedback</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p>vertex buffers updated by geometry shader and written back using transfrom feedback</p>
+</li>
+<li>
+<p><a href="http://3d.benjamin-thaut.de/?p=8" class="bare">http://3d.benjamin-thaut.de/?p=8</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>custom GLSL shader work (ab)using color buffers</p>
+<div class="ulist">
+<ul>
+<li>
+<p>using the color buffers to represent position</p>
+</li>
+<li>
+<p>and reading from a texture and writing to another texture</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>OpenCL interop</p>
+<div class="ulist">
+<ul>
+<li>
+<p>using <a href="https://www.khronos.org/opencl/">OpenCL</a> (Open Compute Language) to do the simulation</p>
+</li>
+<li>
+<p>setup OpenCL so it can pass information to OpenGL</p>
+</li>
+<li>
+<p>also possible with CUDA, Stream, SyCL and various others</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_particle_rendering">Particle Rendering</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>May use the game geometry for each particle</p>
+<div class="ulist">
+<ul>
+<li>
+<p>through instancing and/or geometry shaders</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>May render with billboarding (simple texture quads, that always face the viewer)</p>
+</li>
+<li>
+<p>May (sometimes) render with just pixels - limited visual quality, of course</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_billboarding_and_transparency">Billboarding and transparency</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Billboarding with transparency gives excellent visual effects</p>
+</li>
+<li>
+<p><strong>BUT</strong> for transparency to work correctly you have to <a href="https://www.opengl.org/wiki/Transparency_Sorting">render the sprites from back to front</a></p>
+</li>
+<li>
+<p>&#8658; you need to sort your sprites, each frame, according to the viewpoint</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_efficient_sorting">Efficient sorting</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>You know that the viewpoint, in general, doesn&#8217;t change much over time</p>
+</li>
+<li>
+<p>What does that mean for sorting?</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_efficient_sorting_2">Efficient sorting 2</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Use a sorting-algorithm that is very fast for fully/mostly sorted lists</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Sorting algorithms and their properties finally are significantly useful to you</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_particle_simulation_of_fluids">Particle simulation of fluids</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Simulating particles is one approach to simulating fluids</p>
+<div class="ulist">
+<ul>
+<li>
+<p>see Smoothed-particle hydrodynamics</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_smoothed_particle_hydrodynamics_example">Smoothed-particle hydrodynamics example</h3>
+<div class="videoblock strech">
+<div class="title"><a href="https://youtu.be/7Z6Lpv3ltaE">Smoothed Particle Hydrodynamics (SPH) : Fluid Simulation (watch3602004)</a></div>
+<div class="content">
+<iframe src="https://www.youtube.com/embed/7Z6Lpv3ltaE?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_workshop_activities">Workshop Activities</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make a single particle that goes in some direction and falls under gravity</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Use a cube for the particle</p>
+</li>
+<li>
+<p>Make the particles parameters configurable in the constructor</p>
+</li>
+<li>
+<p>Make the cube position update over time</p>
+</li>
+<li>
+<p>Make the cube die after a "lifetime"</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Make multiple particles</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Make the particles store themselves, or be stored in list</p>
+</li>
+<li>
+<p>Make an "emitter" spit out a single particle after 5 seconds of your game running</p>
+</li>
+<li>
+<p>Make the emitter spit out a particle very second</p>
+</li>
+<li>
+<p>Make the emitter set different parameters for each particle</p>
+</li>
+<li>
+<p>Make the emitter spit out 100 particles per second</p>
+</li>
+<li>
+<p>Make a limit of total particles and pre-emptively kill off the oldest particles</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Make each particle a Billboard</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Using a single texture</p>
+</li>
+<li>
+<p>Using a texture with transparency</p>
+</li>
+<li>
+<p>sort the particles back-to-front for transparency to work well</p>
+</li>
+<li>
+<p>Use dynamic textures for each particle</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_recommended_reading">Recommended Reading</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://www.mbsoftworks.sk/index.php?page=tutorials&amp;series=1&amp;tutorial=26" class="bare">http://www.mbsoftworks.sk/index.php?page=tutorials&amp;series=1&amp;tutorial=26</a></p>
+</li>
+<li>
+<p><a href="http://www.3dgep.com/simulating-particle-effects-using-opengl/" class="bare">http://www.3dgep.com/simulating-particle-effects-using-opengl/</a></p>
+</li>
+<li>
+<p><a href="http://www.opengl-tutorial.org/intermediate-tutorials/billboards-particles/particles-instancing/" class="bare">http://www.opengl-tutorial.org/intermediate-tutorials/billboards-particles/particles-instancing/</a></p>
+</li>
+<li>
+<p><a href="http://learnopengl.com/#!In-Practice/2D-Game/Particles" class="bare">http://learnopengl.com/#!In-Practice/2D-Game/Particles</a></p>
+</li>
+<li>
+<p><a href="http://www.bfilipek.com/2014/03/three-particle-effects.html" class="bare">http://www.bfilipek.com/2014/03/three-particle-effects.html</a></p>
+</li>
+<li>
+<p><a href="http://www.swiftless.com/tutorials/opengl/particles.html" class="bare">http://www.swiftless.com/tutorials/opengl/particles.html</a></p>
+</li>
+<li>
+<p><a href="http://enja.org/2010/08/27/adventures-in-opencl-part-2-particles-with-opengl/" class="bare">http://enja.org/2010/08/27/adventures-in-opencl-part-2-particles-with-opengl/</a></p>
+</li>
+<li>
+<p><a href="https://software.intel.com/en-us/articles/opencl-and-opengl-interoperability-tutorial" class="bare">https://software.intel.com/en-us/articles/opencl-and-opengl-interoperability-tutorial</a></p>
+</li>
+<li>
+<p><a href="http://sa10.idav.ucdavis.edu/docs/sa10-dg-opencl-gl-interop.pdf" class="bare">http://sa10.idav.ucdavis.edu/docs/sa10-dg-opencl-gl-interop.pdf</a></p>
+</li>
+<li>
+<p><a href="http://www.cmsoft.com.br/opencl-tutorial/openclopengl-interoperation/" class="bare">http://www.cmsoft.com.br/opencl-tutorial/openclopengl-interoperation/</a></p>
+</li>
+<li>
+<p><a href="http://3d.benjamin-thaut.de/?p=8" class="bare">http://3d.benjamin-thaut.de/?p=8</a></p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -469,21 +1023,5 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 Last updated 2016-10-28 13:59:14 BST
 </div>
 </div>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  messageStyle: "none",
-  tex2jax: {
-    inlineMath: [["\\(", "\\)"]],
-    displayMath: [["\\[", "\\]"]],
-    ignoreClass: "nostem|nolatexmath"
-  },
-  asciimath2jax: {
-    delimiters: [["\\$", "\\$"]],
-    ignoreClass: "nostem|noasciimath"
-  },
-  TeX: { equationNumbers: { autoNumber: "none" } }
-});
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.0/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
 </body>
 </html>
