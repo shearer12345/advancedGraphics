@@ -1,0 +1,218 @@
+= Particle Effects
+:imagesdir: assets
+:revealjs_history: true
+:examplesdir: examples
+
+
+== Particle Effects - examples
+
+[.stretch]
+image::Pi-explosion.jpg[]
+
+=== Particle Effects - examples 2
+
+[.stretch]
+image::Particle_sys_galaxy.jpg[]
+
+=== Particle Effects - examples 3
+
+[.stretch]
+image::Particle_sys_fire.jpg[]
+
+
+=== Particle Effects - examples 4
+
+[.stretch]
+.https://youtu.be/SgaVCSF4LpM[OpenGL Particle System Demo 1 (AsymmetricArt)]
+video::SgaVCSF4LpM[youtube]
+
+
+=== Particle Effects - examples 5
+
+[.stretch]
+.https://youtu.be/vyhCAZ-cdyI[Simulating Particle Effects using OpenGL (Jeremiah van Oosten)]
+video::vyhCAZ-cdyI[youtube]
+
+=== Particle Effects - examples 6
+
+[.stretch]
+.https://www.youtube.com/watch?v=jwCAsyiYimY[Particle System using compute shader in OpenGL (Stanislaw Eppinger)]
+video::jwCAsyiYimY[youtube]
+
+=== Particle Effects - examples 7
+
+[.stretch]
+.https://youtu.be/uwUBkEH8fgk[OpenGL GPU Particle System (Ingrater88)]
+video::uwUBkEH8fgk[youtube]
+
+=== Particle Effects - examples 8
+
+[.strech]
+.https://youtu.be/mh6Z9yzdQFE[OpenGL Particle System: Fire (Salaheddine Essid)]
+video::mh6Z9yzdQFE[youtube]
+
+=== Particle Effects - examples 9
+
+[.strech]
+.https://youtu.be/rvz1rhvaf1c[OpenGL Particle System: Brownout 3  (Salaheddine Essid)]
+video::rvz1rhvaf1c[youtube]
+
+
+== What are particle effects used for?
+
+* ???
+* ???
+* ???
+* ???
+* ???
+* ???
+
+
+=== What are particle effects used for? 2
+
+* Generally, visual-only effects
+* Rarely, impact on game logic
+  ** => don't send dynamic particle data over network in multiplayer scenarios
+  ** only enough to do the effects
+  ** doesn't matter if non-deterministic
+
+== What are particle effects?
+
+* AKA Particle Systems
+
+* Large numbers of simple-geometry objects
+  ** usually cubes, sprites, billboards
+* That behave according to relatively simple rules
+* Usually "die" after some amount of time
+
+== Particle Systems
+
+. Particle Emitters
+. Particle Simulation
+. Particle Rendering
+
+== Particle Emitters
+
+* Add particles to the simulation
+* Frequently based on time (spawn rate)
+* Frequently particles start out in the position of the emitter
+  ** or near by
+
+=== Particle Emitters 2
+
+* Emitter sets each particles properties
+  ** position & velocity
+    *** may be some distribution function related to the emitters direction
+  ** lifetime
+  ** colour/visual parametres
+  ** other physical parametres
+* to give variety to the simulation
+
+== Particle Simulation
+
+* Simulate the movement of particles
+* Usually very simple simulation
+* Usually no interactions between particles
+  ** saving high amounts of collision detection and responses
+* Usually very simple interactions with the game world
+  ** e.g. none; bounce of "ground"; effected by "wind"
+* Usually effected by "gravity"
+* Usually have no impact on the game simulation
+  ** i.e. just visual effects
+
+== Particle Simulation 2
+
+* Particles frequently only have a position and velocity
+  ** no orientation
+* Often simulated on CPU
+  ** and just positions updated to GPU
+  ** simple p' = p + v*dt
+* Usually just send the *position* to the GPU
+
+== Particle Simulation 3
+
+* Particles simulation can take place on the GPU, through:
+  . https://www.youtube.com/watch?v=uwUBkEH8fgk[custom GLSL shader work using transform feedback]
+    *** vertex buffers updated by geometry shader and written back using transfrom feedback
+    *** http://3d.benjamin-thaut.de/?p=8
+  . custom GLSL shader work (ab)using color buffers
+    *** using the color buffers to represent position
+    *** and reading from a texture and writing to another texture
+  . OpenCL interop
+    *** using https://www.khronos.org/opencl/[OpenCL] (Open Compute Language) to do the simulation
+    *** setup OpenCL so it can pass information to OpenGL
+    *** also possible with CUDA, Stream, SyCL and various others
+
+== Particle Rendering
+
+* May use the game geometry for each particle
+  ** through instancing and/or geometry shaders
+* May render with billboarding (simple texture quads, that always face the viewer)
+* May (sometimes) render with just pixels - limited visual quality, of course
+
+=== Billboarding and transparency
+
+* Billboarding with transparency gives excellent visual effects
+* *BUT* for transparency to work correctly you have to https://www.opengl.org/wiki/Transparency_Sorting[render the sprites from back to front]
+* => you need to sort your sprites, each frame, according to the viewpoint
+
+=== Efficient sorting
+
+* You know that the viewpoint, in general, doesn't change much over time
+* What does that mean for sorting?
+
+=== Efficient sorting 2
+
+* Use a sorting-algorithm that is very fast for fully/mostly sorted lists
+  ** Sorting algorithms and their properties finally are significantly useful to you
+
+== Particle simulation of fluids
+
+* Simulating particles is one approach to simulating fluids
+  ** see Smoothed-particle hydrodynamics
+
+=== Smoothed-particle hydrodynamics example
+
+[.strech]
+.https://youtu.be/7Z6Lpv3ltaE[Smoothed Particle Hydrodynamics (SPH) : Fluid Simulation (watch3602004)]
+video::7Z6Lpv3ltaE[youtube]
+
+
+== Workshop Activities
+
+. Make a single particle that goes in some direction and falls under gravity
+  ** Use a cube for the particle
+  ** Make the particles parameters configurable in the constructor
+  ** Make the cube position update over time
+  ** Make the cube die after a "lifetime"
+
+. Make multiple particles
+  ** Make the particles store themselves, or be stored in list
+  ** Make an "emitter" spit out a single particle after 5 seconds of your game running
+  ** Make the emitter spit out a particle very second
+  ** Make the emitter set different parameters for each particle
+  ** Make the emitter spit out 100 particles per second
+  ** Make a limit of total particles and pre-emptively kill off the oldest particles
+
+. Make each particle a Billboard
+  ** Using a single texture
+  ** Using a texture with transparency
+  ** sort the particles back-to-front for transparency to work well
+  ** Use dynamic textures for each particle
+
+
+
+
+== Recommended Reading
+
+* http://www.mbsoftworks.sk/index.php?page=tutorials&series=1&tutorial=26
+* http://www.3dgep.com/simulating-particle-effects-using-opengl/
+* http://www.opengl-tutorial.org/intermediate-tutorials/billboards-particles/particles-instancing/
+* http://learnopengl.com/#!In-Practice/2D-Game/Particles
+* http://www.bfilipek.com/2014/03/three-particle-effects.html
+* http://www.swiftless.com/tutorials/opengl/particles.html
+* http://enja.org/2010/08/27/adventures-in-opencl-part-2-particles-with-opengl/
+* https://software.intel.com/en-us/articles/opencl-and-opengl-interoperability-tutorial
+* http://sa10.idav.ucdavis.edu/docs/sa10-dg-opencl-gl-interop.pdf
+* http://www.cmsoft.com.br/opencl-tutorial/openclopengl-interoperation/
+* http://3d.benjamin-thaut.de/?p=8

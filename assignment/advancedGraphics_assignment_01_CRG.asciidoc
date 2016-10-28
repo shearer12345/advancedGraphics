@@ -12,15 +12,27 @@ endif::[]
 :revealjs_customtheme: "reveal.js/css/theme/white.css"
 :source-highlighter: highlightjs
 
+== Learning outcomes (from Module Specification)
+
+LO1
+: Design and develop computer graphics implementations using advanced techniques for efficient graphical effects and high-polygon scenes
+
+LO2
+: Synthesise advanced computer graphics programming techniques and approaches in the
+delivery of a game artefact
+
+L03
+: Demonstrate deep understanding of advanced computer graphics on non-PC systems
 
 == Coursework assignment CRG
 
-[options="header", cols="15s,10s,15,15,15,15"]
+[options="header", cols="15s,10s,10s,15,15,15,15"]
 |===
-| Criterion | Weight | Pass (50%) | Merit (60%) | Distinction (70%) | Distinction+ (80%+)
+| Criterion | LO | Weight | Pass (50%) | Merit (60%) | Distinction (70%) | Distinction+ (80%+)
 
 
 | Document
+| LO1, LO2
 | 10%
 | Document includes a list of features and screenshots of each
 | As for Pass, plus Document includes control keys for the demo
@@ -28,6 +40,7 @@ endif::[]
 | As Distinction, plus the reflection is clear, concise and insightful
 
 | Logging and performance
+| LO1, LO2
 | 10%
 | The game logs basic performance information to console, or screen (e.g. render time)
 | As for Pass, plus logging breaks down the render and gives details such as batch count
@@ -35,6 +48,7 @@ endif::[]
 | As Distinction, plus the log scrolls and uses colours to represent different log events
 
 | Model loading
+| LO1, LO2
 | 10%
 | At least one model is loaded from a file
 | Multiple models are loaded from a file, with textures
@@ -42,6 +56,7 @@ endif::[]
 | As Distinction, plus a model can be specified (and loaded) with a command line parameter
 
 | Animation
+| LO1, LO2
 | 10%
 | Skeletal Animation on one model, with at least 2 level of hierarchy (body + arms)
 | As for Pass, plus more than 2 levels of hierarchy (body + upper arms + lower arms)
@@ -49,6 +64,7 @@ endif::[]
 | As for Distinction, plus at least 10 "instanced" models
 
 | Particle effects
+| LO1, LO2
 | 10%
 | There is a particle effect with at least 1,000 particles, affected by gravity
 | As for Pass, plus at least 10,000 particles
@@ -56,6 +72,7 @@ endif::[]
 | As for Distinction, plus particles are "bill-boarded"
 
 | Shadows
+| LO1, LO2
 | 20%
 | Some models have "cheat shadows" on the ground beneath them (not connected to the model geometry, e.g. circles)
 | As for Pass, plus a "shadow map" is generated and can be shown on-screen on a keypress
@@ -63,6 +80,7 @@ endif::[]
 | As for Distinction, plus shadows have good visual qualities (e.g. no/low shadow acne; low aliasing; soft edges )
 
 | Tesselation Shader
+| LO1, LO2
 | 20%
 | There is a tesselated 2D object in the scene (e.g. a triangle made from many smaller (visually evident) triangles)
 | As for Merit, plus the tesselation detail of the 3D object can be controlled with keyboard input
