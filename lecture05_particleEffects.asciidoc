@@ -178,6 +178,31 @@ video::rvz1rhvaf1c[youtube]
 video::7Z6Lpv3ltaE[youtube]
 
 
+== Workshop Activities
+
+. Make a single particle that goes in some direction and falls under gravity
+  ** Use a cube for the particle
+  ** Make the particles parameters configurable in the constructor
+  ** Make the cube position update over time
+  ** Make the cube die after a "lifetime"
+
+. Make multiple particles
+  ** Make the particles store themselves, or be stored in list
+  ** Make an "emitter" spit out a single particle after 5 seconds of your game running
+  ** Make the emitter spit out a particle very second
+  ** Make the emitter set different parameters for each particle
+  ** Make the emitter spit out 100 particles per second
+  ** Make a limit of total particles and pre-emptively kill off the oldest particles
+
+. Make each particle a Billboard
+  ** Using a single texture
+  ** Using a texture with transparency
+  ** sort the particles back-to-front for transparency to work well
+  ** Use dynamic textures for each particle
+
+
+
+
 == Recommended Reading
 
 * http://www.mbsoftworks.sk/index.php?page=tutorials&series=1&tutorial=26
