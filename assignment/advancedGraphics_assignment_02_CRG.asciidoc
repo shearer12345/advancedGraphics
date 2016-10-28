@@ -12,15 +12,27 @@ endif::[]
 :revealjs_customtheme: "reveal.js/css/theme/white.css"
 :source-highlighter: highlightjs
 
+== Learning outcomes (from Module Specification)
+
+LO1
+: Design and develop computer graphics implementations using advanced techniques for efficient graphical effects and high-polygon scenes
+
+LO2
+: Synthesise advanced computer graphics programming techniques and approaches in the
+delivery of a game artefact
+
+L03
+: Demonstrate deep understanding of advanced computer graphics on non-PC systems
 
 == Coursework assignment CRG
 
-[options="header", cols="15s,10s,15,15,15,15"]
+[options="header", cols="15s,10s,10s,15,15,15,15"]
 |===
-| Criterion | Weight | Pass (50%) | Merit (60%) | Distinction (70%) | Distinction+ (80%+)
+| Criterion | LO | Weight | Pass (50%) | Merit (60%) | Distinction (70%) | Distinction+ (80%+)
 
 
 | Document
+| LO2, LO3
 | 20%
 | Document includes a list of features and screenshots/photos of each
 | As for Pass, plus Document includes control keys (or other) for the demo
@@ -28,6 +40,7 @@ endif::[]
 | As Distinction, plus the reflection is clear, concise and insightful
 
 | Alternative platform implementation
+| LO2, LO3
 | 80%
 | The program runs on the alternative platform with at least model loading/displaying and particle effects
 | As for Pass, plus Skelatal animation works

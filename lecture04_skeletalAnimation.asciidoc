@@ -48,7 +48,7 @@ video::oLRpnS2HvTs[youtube]
 
 * collection of vertices
 * collection of faces (triangles) connecting those vertices
-* in a default / static pose
+* in a default / static pose (bind-pose)
 
 === A hierarchy of bones
 
@@ -84,6 +84,11 @@ image::174px-Gray_111_-_Vertebral_column-coloured.png[title="Vertebral column", 
   ** could be calculated dynamically, or hard-coded for testing/development/debugging
 * to cause the animation
 
+== Our job as Graphics programmers
+
+* Our job is to take existing animations and display them
+  ** in general, we would expect the animations, mesh, etc to be created by other parties
+  ** during testing, developing, debug, we may use *programmer-generated* animations
 
 == Calculating the skeletal transformation
 
@@ -102,7 +107,36 @@ image::boneSpace.png[title="bone space", alt="bone space", link="http://what-whe
 
 === Calculating the bone-transformations 2
 
-* Recall that to rotate around translation of each bones
+* Recall that to rotate around a point we first have to translate to that point, then apply rotation, then undo the translation
+  ** the translation we need to do is exactly the translation of each bone
+* Depending on our model (loaded from a file), the transformations stored in the file may already be appropriate to use directly
+
+
+
+== Workshop Activities
+
+. Create (hard-coded) a model made up of multiple sections
+  ** start with just 2 sections
+  ** such as a snake
+  ** could even have a rectangular cross-section (i.e. a square snake)
+  image:blenderSnake.jpg[title="blender snake", link="https://www.blend4web.com/en/forums/topic/271/"]
+
+. Make a program that renders this model
+
+. Imagine that you have a single bone, that influences as follows:
+  ** fully (100%) controls one end of your snake (head)
+  ** partially (50%) controls the centre of your snake
+  ** doesn't influence the other end of your snake (tail)
+
+. Simulate the rotation of this bone so it changes over time
+  ** like a pendulum
+
+. Use the bone rotation and translation to make your snake head move
+
+. Use the bone rotation and translation to make your whole snake move appropriately
+  ** the tail shouldn't move
+  ** the middle should move less than the head
+
 
 
 
