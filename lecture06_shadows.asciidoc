@@ -1,0 +1,161 @@
+= Shadows
+:imagesdir: assets
+:revealjs_history: true
+:examplesdir: examples
+
+== What are shadows?
+
+* absence of light on a surface due to occlusion from other objects
+  ** not necessarily complete absence
+  ** could be other light sources
+  ** light sources are usually unfocused - give soft edges to shadows
+
+== Shadows - examples
+
+[.stretch]
+image::shadow_mapping_with_without.png[link=http://learnopengl.com/#!Advanced-Lighting/Shadows/Shadow-Mapping]
+
+
+== Shadows in OpenGL/DirectX
+
+* Both OpenGL and DirectX only resolve the generic *rendering equation* in a quite limited way
+  ** light only in straight lines
+  ** light transfer only one step from surface to camera
+  ** light transfer only one step from a light to surface (local lighting)
+    *** discounting any occlusion
+* In other words, our normal lighting is *extremely* incomplete
+
+=== Local lighting
+
+* The pipeline nature of OpenGL and DirectX mean that each vertex/triangle only has information about itself
+  ** they don't know where any other triangles are
+* This makes things *fast*
+  ** but *limited*
+
+== Global lighting
+
+* There are a variety of global lighting models/techniques.
+* Some you could look into include:
+  ** ray-tracing
+  ** path-tracing
+  ** radiosity
+  ** photon mapping
+  ** metropolis light transport
+
+=== Global lighting 2
+
+* These take into account how light is transported between (and within) surfaces
+  ** but *require* information about the whole scene at all stages
+* They tend to be *extremely* expensive relative to local-lighting models
+  ** *except* that for good local-lighting models we have to hack in some global-lighting effects
+  ** shadows are one such effect
+    *** and are important sense of depth
+    *** and for for visual quality
+
+[.stretch]
+image::Radiosity_-_RRV,_step_79.png[link=https://commons.wikimedia.org/wiki/File:Radiosity_-_RRV,_step_79.png]
+
+== Light maps
+
+* As global lighting is expensive we could pre-calculate some/all of the lighting/shadows effects
+* This technique is called light mapping
+  ** on offline process (usually in a 3D modelling package) "bakes" the light in to the scene
+  ** "bakes" = makes a fixed/static version of something (can also do with physics)
+  ** gives an static output that we can use in our rendering
+* Usually the brightness of a surface is calculated offline and stored in an image to use as a texture
+* The lighting for lighting mapping can be arbitrarily good
+  ** it's offline, so depends only on how much offline time we want to throw at it
+* Doesn't (easily) account for dynamic scenes - where things change move
+  ** Can combine with dynamic lighting models
+
+== Shadow maps
+
+* Modern method for dynamic shadows (2016)
+* Requires rendering to off-screen buffers
+  ** AKA render-to-texture
+  ** Frame-Buffer Objects
+
+=== Shadow maps - outline
+
+. Render from each light - depth-only
+  ** store in a texture/FBO
+  ** everything the light can't "see" is in shadow
+  ** this gives us the closest point on a ray, to the light
+    *** i.e. the nearest occluder of the light in a specific direction
+. Render as usual
+  ** with extra test to determine shadow status
+  ** using the FBO
+  ** for each  fragment calculate the distance to each light
+  ** compare with the distance stored in the shadow map for that direction
+    *** we have to sample the texture/FBO appropriately
+    *** we have to be able to calculate where in the texture/FBO to lookup
+  ** if shadow map is nearer then this fragment is in shadow
+
+[.stretch]
+image::shadow_mapping_theory_spaces.png[link=http://learnopengl.com/#!Advanced-Lighting/Shadows/Shadow-Mapping]
+
+=== Shadow maps - hints
+
+* The resolution of the shadow map is up to you
+  ** higher resolution gives better results
+  ** costs more render time
+* Simulate the viewpoint of a directional light (one with parallel rays) with an orthographic projection matrix
+* Your shadow map rendering stages should use separate shaders
+  ** they need to do much less, so only do what you need to
+  ** you *could* use if conditions in your shaders
+    *** but generally (in other situation) *DON'T*
+* The matrix used to transform vertices for the shadow map is exactly what we need for calculating the lookup into the shadow map
+  ** when rendering the player-viewpoint, we have to pass extra information (about the lookup into the shadow map) from the vertex shader to the fragment shader
+
+=== IF conditions in shaders
+
+* all cores execute together
+* if any core flows one side of an IF branch
+  ** then ALL cores execute that side, just may throw away the result
+* OK if the condition is a uniform
+  ** the condition will be constant for the entire pass, so all cores only do one branch
+* http://stackoverflow.com/questions/4176247/efficiency-of-branching-in-shaders
+* http://www.gamedev.net/topic/641960-glsl-which-is-faster-lots-of-if-statements-or-lots-of-seperate-shaders/
+
+== Shadow map - artifacts
+
+* Shadow maps are theoretically reasonable straightforwards
+* Practically, lots of issues to get right
+  ** lots of artifacts if we aren't careful
+. Shadow acne
+  ** depth map has limited precision and resolution
+  ** similar to z-fighting
+. Peter panning
+  ** solving shadow acne may detach shadows from their objects
+  ** objects visually appear to float on surfaces
+. Over sampling
+. Aliased edges
+  ** depth map has limited resolution
+
+[.stretch]
+image::shadow_mapping_zoom.png[link=http://learnopengl.com/#!Advanced-Lighting/Shadows/Shadow-Mapping]
+
+== Shadow maps - costs
+
+* Good shadow maps are pretty expensive
+* Good shadow maps are pretty complex
+  ** in theory
+  ** in practice
+* Perhaps at some point, real-time light transport methods will be used instead
+  ** i.e. no more local lighting.
+
+== Workshop Activities
+
+
+
+== Recommended Reading
+
+* http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-16-shadow-mapping/
+* http://learnopengl.com/#!Advanced-Lighting/Shadows/Shadow-Mapping
+* http://www.swiftless.com/tutorials/opengl/basic_shadows.html
+* http://www.mbsoftworks.sk/index.php?page=tutorials&series=1&tutorial=29
+* http://learnopengl.com/#!Advanced-Lighting/Shadows/Point-Shadows
+* http://learnopengl.com/#!Advanced-Lighting/Shadows/CSM
+* http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-14-render-to-texture/
+* https://www.opengl.org/wiki/Framebuffer_Object
+* http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-15-lightmaps/
