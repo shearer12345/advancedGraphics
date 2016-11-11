@@ -1,0 +1,175 @@
+= Tesselation Shaders
+:imagesdir: assets
+:revealjs_history: true
+:examplesdir: examples
+
+== What are Tesselation Shaders?
+
+* Tessellation shaders allows us to subdivide a mesh into more a more detailed/dense mesh
+* Extra [OPTIONAL] stages in the pipeline
+* Advantages include:
+  ** simple/small representation in RAM can be amplified
+    *** GPU RAM in limited and is frequently a cause of delays
+    *** Generally, memory on modern hardware (CPU or GPU) is a restriction
+    *** both in terms of speed (bottleneck)
+    *** also in terms of size (limited RAM)
+  ** amount of detail of a mesh can be changed dynamically
+    *** for example, a sphere far away could be represented by around 12 vertices, but close up 10,000 vertices
+    *** always using 10,000 vertices would be *expensive* and *inefficent*
+  ** amount of detail can be changed semi-continuously
+    *** reduced popping
+  ** small representation in persistent storage (files/network)
+    *** smaller amounts of data sent from CPU->GPUs
+
+== Tesselation Shaders - examples
+
+[.stretch]
+image::tessellated-displacement.png[link=https://www.panda3d.org/blog/2014/10/]
+
+[.stretch]
+image::screenshot-Fri-Oct-03-17-35-49-2014-1914.jpg[link=https://www.panda3d.org/blog/2014/10/]
+
+== Popping (one motivation)
+
+
+[.stretch]
+.https://www.youtube.com/watch?v=KfeFcZDjCRg[LOD Popping (VonSchpam)]
+video::KfeFcZDjCRg[youtube, width=900, height=600]
+
+[.stretch]
+.https://www.youtube.com/watch?v=lMV-IFxQY0c[Aliens: Colonial Marines - level of detail popping (Soylent Dave)]
+video::lMV-IFxQY0c[youtube, width=900, height=600]
+
+
+== Tesselation Shaders in OpenGL
+
+* Tesselation shaders are a relatively new feature in core OpenGL
+  ** introduced to core in OpenGL 4.x
+  ** prior to 4.x available as https://www.opengl.org/registry/specs/ARB/tessellation_shader.txt[ARB extensions] to OpenGL 3.2
+* We'll need to get a higher version context
+  ** or use extensions (the harder way)
+* Our hardware will have to support this version, or the extension
+* We'll have to move our GLSL to the new version
+
+== Tesselation outside of OpenGL
+
+* Tesseleation has a longer history than as part of OpenGL
+* We've always been able to write code to take a small set of vertices or triangles, and create more detailed geometry
+* For example:
+  .. take a tetrahedron
+  .. for each face (triangle), find the mid point of the 3 vertices
+  .. move it away from a fixed "centre", to be a fixed distance from that centre (definition of a sphere)
+  .. make 3 new (replacement triangles) from each pair of original vertices and the new one
+  .. repeat for all the new triangles, until some limit
+  ** you can do this from a triangle, to create a circle, also
+
+== Tesselation Shaders in the OpenGL Pipeline
+
+
+[ditaa]
+....
++------------------+
+|  Vertex Shader   |
++--------+---------+
+         |
++--------v----------------------+
+|  Tesselation Control Shader   |    OPTIONAL (T)
++--------+----------------------+
+         |
++--------v---------+
+|  Tesselator      | fixed-function  OPTIONAL (T)
++--------+---------+
+         |
++--------v-----------------------+
+|  Tesselation Evaluation Shader |   OPTIONAL (T)
++--------+-----------------------+
+         |
++--------v---------+
+|  Geometry Shader |     OPTIONAL (G)
++--------+---------+
+         |
++--------v---------+
+|  Clipping        |
++--------+---------+
+         |
++--------v---------+
+|  Rasterisation   |
++--------+---------+
+         |
++--------v---------+
+|  Fragment Shader |
++--------+---------+
+         |
++--------v---------+  +--------v---------+
+|  Blending        >--|  Frame Buffer    |
++------------------+  +------------------+
+
+....
+
+== GeomPatches
+
+* Tesselation shaders take in a new kind of primitive
+  ** Geometry Patches - `GL_PATCHES`
+  ** rather than triangles, lines, or points
+  ** e.g. `glDrawArrays(GL_PATCHES, firstVert, vertCount);`
+* We also have to tell OpenGL how many vertices belong to each patch
+  ** `glPatchParameteri(GL_PATCH_VERTICES, 16); `
+
+== Tesselation Control Shader
+
+* OPTIONAL - we haven't had one until now
+* Executes once per incoming vertex
+* Transforms just that vertex
+* *Programmable*
+* Controls *which* points to subdivide
+* Controls *How many* times to subdivide each part of the patch
+* i.e. Controls the next (fixed-function) stage - the Tesselator
+
+=== `gl_TessLevelInner` and `gl_TessLevelOuter`
+
+`gl_TessLevelInner`::
+the number of “nested” primitives
+the
+`gl_TessLevelOuter`::
+number of times to subdivide each edge
+
+* For both, a value of 1 means no subdivision
+  ** useful for testing your setup
+
+=== `gl_TessLevelInner` and `gl_TessLevelOuter` table
+
+[.stretch]
+image::Tessellation_Level_Table.png[link=https://commons.wikimedia.org/wiki/File%3ATessellation_Level_Table.png]
+
+[.stretch]
+image::Icosahedron_to_Sphere.png[link=https://commons.wikimedia.org/wiki/File%3AIcosahedron_to_Sphere.png]
+
+== Tesselator
+
+* Must have a Tesselation Evaluation Shader in our current (GLSL) program for this to run
+* Fixed-function
+  ** we can *control* it from the TCS and the TES
+  ** we can't directly *program* it
+
+
+== Tesselation Evaluation Shader
+
+* What to do with the tessellated vertices
+* Receives more vertices than we had (in RAM, or in the Tesselation Control Shader)
+* Computes the interpolated positions and other per-vertex data from them
+* *Programmable*
+
+== Recommended Reading
+
+* https://www.opengl.org/wiki/Tessellation
+* https://www.opengl.org/wiki/Tessellation_Control_Shader
+* https://www.opengl.org/wiki/Tessellation_Evaluation_Shader
+* http://ogldev.atspace.co.uk/www/tutorial30/tutorial30.html
+* http://prideout.net/blog/?p=48
+* http://web.engr.oregonstate.edu/~mjb/cs519/Handouts/tessellation.1pp.pdf
+* http://www.lighthouse3d.com/tutorials/glsl-tutorial/tessellation/
+* http://stackoverflow.com/questions/24083656/tessellation-shader-opengl
+* https://www.panda3d.org/blog/2014/10/
+* http://voxels.blogspot.co.uk/2011/09/tesselation-shader-tutorial-with-source.html
+* http://computer-graphics.se/TSBK07-files/pdf/PDF09/10%20LOD.pdf
+* https://computeranimations.wordpress.com/2015/03/16/rasterization-of-parametric-curves-using-tessellation-shaders-in-glsl/
