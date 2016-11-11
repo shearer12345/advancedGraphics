@@ -14,6 +14,6 @@ shearer12345
 . link:lecture04_skeletalAnimation.html[Skeletal Animation]
 . link:lecture05_particleEffects.html[Particle Effects]
 . link:lecture06_shadows.html[Shadows]
-. link:lecture07_tesselationShaders.html[Tesselation Shaders (To Release)] #Nov 11th
+. link:lecture07_tesselationShaders.html[Tesselation Shaders]
 
 == Future
