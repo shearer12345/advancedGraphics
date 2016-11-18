@@ -16,4 +16,8 @@ shearer12345
 . link:lecture06_shadows.html[Shadows]
 . link:lecture07_tesselationShaders.html[Tesselation Shaders]
 
+== List of Lectures 2
+
+. link:lecture08_assignmentSupport.html[Assignment Support]
+
 == Future
