@@ -1,0 +1,11 @@
+= Assignment Support
+:imagesdir: assets
+:revealjs_history: true
+:examplesdir: examples
+
+== Assignment Support
+
+* Clarifications
+* Questions
+* Procedures
+* http://lists.library.lincoln.ac.uk/lists/CABFC406-D8C8-624B-94FA-E89C1332DCE0.html[Reading list]
