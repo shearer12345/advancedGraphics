@@ -19,5 +19,6 @@ shearer12345
 == List of Lectures 2
 
 . link:lecture08_assignmentSupport.html[Assignment Support]
+. link:lecture09_crossPlatformGraphics.html[Cross platform Graphics]
 
 == Future
