@@ -1,0 +1,126 @@
+= Cross Platform Graphics
+:imagesdir: assets
+:revealjs_history: true
+:examplesdir: examples
+
+== Cross Platform Graphics
+
+
+== Platform variations
+
+* OpenGL version
+  ** OpenGL
+  ** OpenGL ES
+  ** WebGL
+  ** https://en.wikipedia.org/wiki/OpenGL_Shading_Language#Versions[Matching GLSL version]
+* Language support
+  ** C++?
+* Toolchain support
+  ** Can you develop right on that platform?
+  ** Do you need to cross-compile
+
+== Choices (from assignment spec) (hardware/target)
+
+* RaspberryPi (1, 2 or 3)
+* VR headset (e.g. Oculus Rift, HTC Vive)
+* Browser
+* Android
+* iOS
+* others after consultation with John Shearer
+
+== Choices (from assignment spec) (language)
+
+* RaspberryPi (1, 2 or 3) - {cpp}
+* VR headset (e.g. Oculus Rift, HTC Vive) - {cpp}
+* Browser
+  ** via Emscripten
+  ** port to Javascript
+    *** or similar (coffeeScript)
+    *** cannot use three.js or similar
+* Android
+  ** C++
+  ** Java
+* iOS
+  ** C++
+  ** objective-C
+  ** Swift
+  ** NOTE: you’ll need your own OS X machine for this)
+
+== Choices (libraries)
+
+* If using C/C++
+  ** You MUST use appropriate support libraries:
+  ** SDL2, SDL2_image, SDL2_ttf
+  ** GLEW
+  ** GLM
+  ** ASSIMP
+
+== Recommendations
+
+* Get the toolchain working first
+  ** with minimal features
+  ** i.e. *helloWorld*
+* Have a look at the route to each target before making a decision
+* Consider how each target is valuable to you before making a decision
+
+== Which targets are you (roughly) considering?
+
+* RaspberryPi (1, 2 or 3)
+* VR headset (e.g. Oculus Rift, HTC Vive)
+* Browser
+* Android
+* iOS
+
+== Pros and Cons for each target
+
+* RaspberryPi (1, 2 or 3)
+  ** can build on the system (pro)
+  ** linux (pro or con)
+  ** lots of documentation (pro)
+  ** do you have one (or access) (?con)
+  ** different build chain (con)
+  ** easier build chain (?pro)
+  ** no new graphics techniques
+  ** limited OpenGL version
+  ** possibly slow hardware for development
+  ** great demo
+* VR headset (e.g. Oculus Rift, HTC Vive)
+  ** can build on Windows PC (pro)
+  ** do you have one (or access) (?con)
+  ** less documentation
+  ** some new techniques
+  ** new libraries (con)
+  ** great demo (pro)
+* Browser
+  ** different/limited OpenGL/WebGL version (con)
+    *** possibly avoidable (WebGL2)
+  ** new toolchain, or language (con)
+  ** lots of examples (for JS) (pro)
+  ** examples for C++/emscripten (pro)
+  ** easily accessible demo (pro)
+  ** great demo (pro)
+* Android
+  ** different/limited OpenGL version (con)
+  ** new toolchain, and/or language (con)
+  ** projects included with the SDL source (pro)
+  ** lots of examples (for Java) (pro)
+  ** examples for C++ -> Android (NDK), some using SDL (pro)
+  ** great demo (pro)
+* iOS
+  ** different/limited OpenGL version (con)
+  ** new toolchain, and/or language (con)
+  ** projects included with the SDL source (pro)
+  ** lots of examples (for objective-C, Swift)  (pro)
+  ** examples for C++, some using SDL (pro)
+  ** need an OS X machine for development (con)
+  ** may need to pay for test licenses (con)
+  ** great demo (pro)
+
+== Let's have a quick look for the most likely targets at guides out there
+
+* DO DO DO
+
+== Workshop
+
+* Each try to get something working for each platform
+* Share useful links/sources that your find - with me, I'll distribute
