@@ -5,8 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.5">
-<meta name="author" content="shearer12345">
-<title>Advanced Graphics</title>
+<title>Cross Platform Graphics</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -421,84 +420,437 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>Advanced Graphics</h1>
-<div class="details">
-<span id="author" class="author">shearer12345</span><br>
-</div>
+<h1>Cross Platform Graphics</h1>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_list_of_lectures_1">List of Lectures 1</h2>
-<div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><a href="lecture01_introduction.html">Introduction</a></p>
-</li>
-<li>
-<p><a href="lecture02_buildSystem_handsOn.html">buildSystem_handsOn</a></p>
-</li>
-<li>
-<p><a href="lecture03_modelLoading.html">Model Loading</a></p>
-</li>
-<li>
-<p><a href="lecture04_skeletalAnimation.html">Skeletal Animation</a></p>
-</li>
-<li>
-<p><a href="lecture05_particleEffects.html">Particle Effects</a></p>
-</li>
-<li>
-<p><a href="lecture06_shadows.html">Shadows</a></p>
-</li>
-<li>
-<p><a href="lecture07_tesselationShaders.html">Tesselation Shaders</a></p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_list_of_lectures_2">List of Lectures 2</h2>
-<div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><a href="lecture08_assignmentSupport.html">Assignment Support</a></p>
-</li>
-<li>
-<p><a href="lecture09_crossPlatformGraphics.html">Cross platform Graphics</a></p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_future">Future</h2>
+<h2 id="_cross_platform_graphics">Cross Platform Graphics</h2>
 <div class="sectionbody">
 
+</div>
+</div>
+<div class="sect1">
+<h2 id="_platform_variations">Platform variations</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>OpenGL version</p>
+<div class="ulist">
+<ul>
+<li>
+<p>OpenGL</p>
+</li>
+<li>
+<p>OpenGL ES</p>
+</li>
+<li>
+<p>WebGL</p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/OpenGL_Shading_Language#Versions">Matching GLSL version</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Language support</p>
+<div class="ulist">
+<ul>
+<li>
+<p>C++?</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Toolchain support</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Can you develop right on that platform?</p>
+</li>
+<li>
+<p>Do you need to cross-compile</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_choices_from_assignment_spec_hardware_target">Choices (from assignment spec) (hardware/target)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>RaspberryPi (1, 2 or 3)</p>
+</li>
+<li>
+<p>VR headset (e.g. Oculus Rift, HTC Vive)</p>
+</li>
+<li>
+<p>Browser</p>
+</li>
+<li>
+<p>Android</p>
+</li>
+<li>
+<p>iOS</p>
+</li>
+<li>
+<p>others after consultation with John Shearer</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_choices_from_assignment_spec_language">Choices (from assignment spec) (language)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>RaspberryPi (1, 2 or 3) - C++</p>
+</li>
+<li>
+<p>VR headset (e.g. Oculus Rift, HTC Vive) - C++</p>
+</li>
+<li>
+<p>Browser</p>
+<div class="ulist">
+<ul>
+<li>
+<p>via Emscripten</p>
+</li>
+<li>
+<p>port to Javascript</p>
+<div class="ulist">
+<ul>
+<li>
+<p>or similar (coffeeScript)</p>
+</li>
+<li>
+<p>cannot use three.js or similar</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Android</p>
+<div class="ulist">
+<ul>
+<li>
+<p>C++</p>
+</li>
+<li>
+<p>Java</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>iOS</p>
+<div class="ulist">
+<ul>
+<li>
+<p>C++</p>
+</li>
+<li>
+<p>objective-C</p>
+</li>
+<li>
+<p>Swift</p>
+</li>
+<li>
+<p>NOTE: you’ll need your own OS X machine for this)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_choices_libraries">Choices (libraries)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>If using C/C++</p>
+<div class="ulist">
+<ul>
+<li>
+<p>You MUST use appropriate support libraries:</p>
+</li>
+<li>
+<p>SDL2, SDL2_image, SDL2_ttf</p>
+</li>
+<li>
+<p>GLEW</p>
+</li>
+<li>
+<p>GLM</p>
+</li>
+<li>
+<p>ASSIMP</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_recommendations">Recommendations</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Get the toolchain working first</p>
+<div class="ulist">
+<ul>
+<li>
+<p>with minimal features</p>
+</li>
+<li>
+<p>i.e. <strong>helloWorld</strong></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Have a look at the route to each target before making a decision</p>
+</li>
+<li>
+<p>Consider how each target is valuable to you before making a decision</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_which_targets_are_you_roughly_considering">Which targets are you (roughly) considering?</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>RaspberryPi (1, 2 or 3)</p>
+</li>
+<li>
+<p>VR headset (e.g. Oculus Rift, HTC Vive)</p>
+</li>
+<li>
+<p>Browser</p>
+</li>
+<li>
+<p>Android</p>
+</li>
+<li>
+<p>iOS</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pros_and_cons_for_each_target">Pros and Cons for each target</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>RaspberryPi (1, 2 or 3)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>can build on the system (pro)</p>
+</li>
+<li>
+<p>linux (pro or con)</p>
+</li>
+<li>
+<p>lots of documentation (pro)</p>
+</li>
+<li>
+<p>do you have one (or access) (?con)</p>
+</li>
+<li>
+<p>different build chain (con)</p>
+</li>
+<li>
+<p>easier build chain (?pro)</p>
+</li>
+<li>
+<p>no new graphics techniques</p>
+</li>
+<li>
+<p>limited OpenGL version</p>
+</li>
+<li>
+<p>possibly slow hardware for development</p>
+</li>
+<li>
+<p>great demo</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>VR headset (e.g. Oculus Rift, HTC Vive)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>can build on Windows PC (pro)</p>
+</li>
+<li>
+<p>do you have one (or access) (?con)</p>
+</li>
+<li>
+<p>less documentation</p>
+</li>
+<li>
+<p>some new techniques</p>
+</li>
+<li>
+<p>new libraries (con)</p>
+</li>
+<li>
+<p>great demo (pro)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Browser</p>
+<div class="ulist">
+<ul>
+<li>
+<p>different/limited OpenGL/WebGL version (con)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>possibly avoidable (WebGL2)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>new toolchain, or language (con)</p>
+</li>
+<li>
+<p>lots of examples (for JS) (pro)</p>
+</li>
+<li>
+<p>examples for C++/emscripten (pro)</p>
+</li>
+<li>
+<p>easily accessible demo (pro)</p>
+</li>
+<li>
+<p>great demo (pro)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Android</p>
+<div class="ulist">
+<ul>
+<li>
+<p>different/limited OpenGL version (con)</p>
+</li>
+<li>
+<p>new toolchain, and/or language (con)</p>
+</li>
+<li>
+<p>projects included with the SDL source (pro)</p>
+</li>
+<li>
+<p>lots of examples (for Java) (pro)</p>
+</li>
+<li>
+<p>examples for C++ &#8594; Android (NDK), some using SDL (pro)</p>
+</li>
+<li>
+<p>great demo (pro)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>iOS</p>
+<div class="ulist">
+<ul>
+<li>
+<p>different/limited OpenGL version (con)</p>
+</li>
+<li>
+<p>new toolchain, and/or language (con)</p>
+</li>
+<li>
+<p>projects included with the SDL source (pro)</p>
+</li>
+<li>
+<p>lots of examples (for objective-C, Swift)  (pro)</p>
+</li>
+<li>
+<p>examples for C++, some using SDL (pro)</p>
+</li>
+<li>
+<p>need an OS X machine for development (con)</p>
+</li>
+<li>
+<p>may need to pay for test licenses (con)</p>
+</li>
+<li>
+<p>great demo (pro)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_let_s_have_a_quick_look_for_the_most_likely_targets_at_guides_out_there">Let&#8217;s have a quick look for the most likely targets at guides out there</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>DO DO DO</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_workshop">Workshop</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Each try to get something working for each platform</p>
+</li>
+<li>
+<p>Share useful links/sources that your find - with me, I&#8217;ll distribute</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-12-02 11:37:40 GMT
+Last updated 2016-12-02 11:57:20 GMT
 </div>
 </div>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  messageStyle: "none",
-  tex2jax: {
-    inlineMath: [["\\(", "\\)"]],
-    displayMath: [["\\[", "\\]"]],
-    ignoreClass: "nostem|nolatexmath"
-  },
-  asciimath2jax: {
-    delimiters: [["\\$", "\\$"]],
-    ignoreClass: "nostem|noasciimath"
-  },
-  TeX: { equationNumbers: { autoNumber: "none" } }
-});
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.0/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
 </body>
 </html>
