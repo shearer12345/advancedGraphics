@@ -116,6 +116,14 @@
   ** may need to pay for test licenses (con)
   ** great demo (pro)
 
+== Java vs. Javascript
+
+WARNING: Java and Javascript are two *COMPLETELY* different languages
+
+Java:: A strongly-typed, statically-typed, compiled language running on a Virtual Machine. The default language for Android.
+
+Javascript:: A untyped, dynamic, interpreted language. AKA ECMAScript. The default (only) language for client-side Web programming (in-browsers).
+
 == Let's have a quick look for the most likely targets at guides out there
 
 * DO DO DO
