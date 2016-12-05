@@ -116,6 +116,27 @@
   ** may need to pay for test licenses (con)
   ** great demo (pro)
 
+== Java vs. Javascript
+
+WARNING: Java and Javascript are two *COMPLETELY* different languages
+
+Java:: A strongly-typed, statically-typed, compiled language running on a Virtual Machine. The default language for Android.
+
+Javascript:: A untyped, dynamic, interpreted language. AKA ECMAScript. The default (only) language for client-side Web programming (in-browsers).
+
+== Pure javascript route
+
+* WebGL 1.0 is based on OpenGL ES 2.0
+ ** As of February 2016, WebGL 1.0 is supported on http://webglstats.com/[ approximately 93% of browsers]
+ ** Most users *hardware*/*drivers* are capable in 2016
+* WebGL 2 is based on OpenGL ES 3.0
+  ** OpenGL ES 3.0 (and 3.1) are backwards compatible with OpenGL ES 2.0
+* Three.js (a graphics engine library) is not allowed
+* Libraries similar to those you can use for C++ are allowed. Some examples include:
+  ** https://github.com/toji/gl-matrix[glMatrix]
+  ** http://sylvester.jcoglan.com/[Sylvester]
+
+
 == Let's have a quick look for the most likely targets at guides out there
 
 * DO DO DO
