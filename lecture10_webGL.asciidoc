@@ -1,0 +1,60 @@
+= WebGL
+:imagesdir: assets
+:revealjs_history: true
+:examplesdir: examples
+
+== WebGL
+
+* http://nickdesaulniers.github.io/RawWebGL/#/2
+
+== WebGL 2.0
+
+* As if December 2016, available in Firefox and Chrome
+  ** needs enabling
+  ** default on in Chrome from http://www.phoronix.com/scan.php?page=news_item&px=Chrome-56-Beta-Released[Chrome 56]
+* https://www.khronos.org/registry/webgl/specs/latest/2.0/[Specification]
+  ** very close to OpenGL ES 3.0 specification
+
+=== OpenGL ES 3.0+ specification
+
+* Compute shaders introduced in ES 3.1
+* Tesselation and geometry shaders introduction in ES 3.2
+* WebGL is likely to include these in the future.
+* OpenGL 4.3 provides full compatibility with OpenGL ES 3.0
+  ** i.e. OpenGL 4.3 hardware/drivers are OpenGL ES 3.0 compliant
+  ** lower OpenGL versions *may* be compliant through extensions
+
+
+== Nick Desaulniers WebGL presentation
+
+* http://nickdesaulniers.github.io/RawWebGL/#/35
+
+== Some WebGL (OpenGL ES 2.0) differences (from OpenGL 3.3+)
+
+* http://gamedev.stackexchange.com/questions/29672/in-out-keywords-in-glsl[`attribute`, `varying` vs. `in`, `out`]
+
+== Some more WebGL Resources
+
+* https://developer.mozilla.org/en/docs/Web/API/WebGL_API/Tutorial/Getting_started_with_WebGL
+* http://webglfundamentals.org/
+* http://learningwebgl.com/blog/?page_id=1217 - based on NeHe tutorials
+* Look at / learn from the https://github.com/mrdoob/three.js/[three.js source]
+* http://learningwebgl.com/blog/?page_id=1217 (model loading)
+* http://blog.tojicode.com/2011/10/building-game-part-2-model-format.html (model loading)
+* http://blog.tojicode.com/2011/10/building-game-part-3-skinning-animation.html (model animation)
+
+== Vulkan - Question
+
+* Vulkan is a modern replacement for OpenGL
+* Many games will port to Vulkan
+* Vulkan is (even) lower level than OpenGL
+* Would you be interested in some content on, and talking about Vulkan?
+  ** particularly as the Vulkan Programming Guide has just shipped
+    *** https://www.phoronix.com/scan.php?page=news_item&px=Vulkan-Programming-Guide-Pre
+    *** https://twitter.com/sehurlburt/status/806950062408351744
+
+=== Other Vulkan links
+
+* https://renderdoc.org/vulkan-in-30-minutes.html
+* https://libcinder.org/notes/vulkan
+* https://github.com/SaschaWillems/Vulkan
