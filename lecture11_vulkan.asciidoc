@@ -1,0 +1,24 @@
+= Vulkan
+:imagesdir: assets
+:revealjs_history: true
+:examplesdir: examples
+
+== Vulkan
+
+* http://nickdesaulniers.github.io/RawWebGL/#/2
+
+== Vulkan - Question
+
+* Vulkan is a modern replacement for OpenGL
+* Many games will port to Vulkan
+* Vulkan is (even) lower level than OpenGL
+* Would you be interested in some content on, and talking about Vulkan?
+  ** particularly as the Vulkan Programming Guide has just shipped
+    *** https://www.phoronix.com/scan.php?page=news_item&px=Vulkan-Programming-Guide-Pre
+    *** https://twitter.com/sehurlburt/status/806950062408351744
+
+=== Other Vulkan links
+
+* https://renderdoc.org/vulkan-in-30-minutes.html
+* https://libcinder.org/notes/vulkan
+* https://github.com/SaschaWillems/Vulkan
