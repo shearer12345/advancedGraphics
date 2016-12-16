@@ -5,8 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.5">
-<meta name="author" content="shearer12345">
-<title>Advanced Graphics</title>
+<title>Vulkan</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -421,60 +420,354 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>Advanced Graphics</h1>
-<div class="details">
-<span id="author" class="author">shearer12345</span><br>
-</div>
+<h1>Vulkan</h1>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_list_of_lectures_1">List of Lectures 1</h2>
+<h2 id="_vulkan">Vulkan</h2>
 <div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
-<p><a href="lecture01_introduction.html">Introduction</a></p>
+<p><a href="http://nickdesaulniers.github.io/RawWebGL/#/2" class="bare">http://nickdesaulniers.github.io/RawWebGL/#/2</a></p>
 </li>
-<li>
-<p><a href="lecture02_buildSystem_handsOn.html">buildSystem_handsOn</a></p>
-</li>
-<li>
-<p><a href="lecture03_modelLoading.html">Model Loading</a></p>
-</li>
-<li>
-<p><a href="lecture04_skeletalAnimation.html">Skeletal Animation</a></p>
-</li>
-<li>
-<p><a href="lecture05_particleEffects.html">Particle Effects</a></p>
-</li>
-<li>
-<p><a href="lecture06_shadows.html">Shadows</a></p>
-</li>
-<li>
-<p><a href="lecture07_tesselationShaders.html">Tesselation Shaders</a></p>
-</li>
-</ol>
+</ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_list_of_lectures_2">List of Lectures 2</h2>
+<h2 id="_vulkan_question">Vulkan - Question</h2>
 <div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
-<p><a href="lecture08_assignmentSupport.html">Assignment Support</a></p>
+<p>Vulkan is a modern replacement for OpenGL</p>
 </li>
 <li>
-<p><a href="lecture09_crossPlatformGraphics.html">Cross platform Graphics</a></p>
+<p>Many games will port to Vulkan</p>
 </li>
 <li>
-<p><a href="lecture10_webGL.html">WebGL</a></p>
+<p>Vulkan is (even) lower level than OpenGL</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vulkan_industry_forged">Vulkan - Industry Forged</h2>
+<div class="sectionbody">
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Vulkan is a new generation graphics and compute API that provides high-efficiency, cross-platform access to modern GPUs used in a wide variety of devices from PCs and consoles to mobile phones and embedded platforms.</p>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; https://www.khronos.org/vulkan/
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_directx_12_metal">DirectX 12 &amp; Metal</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Conceptually, Vulkan is similar to both:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Microsoft&#8217;s DirectX 12</p>
 </li>
 <li>
-<p><a href="lecture11_vulkan.html">Vulkan</a></p>
+<p>Apple&#8217;s Metal</p>
 </li>
-</ol>
+</ul>
+</div>
+</li>
+<li>
+<p>BUT, those only work on their platforms</p>
+</li>
+<li>
+<p>Vulkan is cross-platform, by design</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Windows (xp, 7, 8, 10)</p>
+</li>
+<li>
+<p>SteamOS</p>
+</li>
+<li>
+<p>Linux</p>
+</li>
+<li>
+<p>Tizen!!!</p>
+</li>
+<li>
+<p>Android (7.0+)images</p>
+</li>
+<li>
+<p>sort-of OS X and iOS</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Vulkan support not announced by Apple</p>
+</li>
+<li>
+<p>Third party support - <a href="https://moltengl.com/moltenvk/">MoltenVK</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Vulkan&#8217;s core in AMD&#8217;s Mantle</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_wrt_opengl">Wrt OpenGL</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>OpenGL seems likely to continue to supported with hardware and hardware drivers for the near future</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Khronos say they&#8217;ll keep developing OpenGL (and ES) in parallel with Vulkan</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Longer term, seems likely that a software OpenGL layer will be developed, that use Vulkan underneath</p>
+<div class="ulist">
+<ul>
+<li>
+<p>OpenGL driver development is extremely complex</p>
+</li>
+<li>
+<p>Vulkan driver development is much easier</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_benefits_of_vulkan_performance">Benefits of Vulkan (performance)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>can create Command Buffers in parallel</p>
+<div class="ulist">
+<ul>
+<li>
+<p>leverage multicore CPUs more</p>
+</li>
+<li>
+<p>good for CPU-limited render situations</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>more predictable performance</p>
+<div class="ulist">
+<ul>
+<li>
+<p>you have more control</p>
+</li>
+<li>
+<p>driver does less, so driver doesn&#8217;t do stuff you don&#8217;t expect or can&#8217;t control</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_benefits_of_vulkan_api">Benefits of Vulkan (API)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Vulkan is designed from the ground up to run on diverse platforms, ranging from mobiles and tablets, to gaming consoles and high-end desktops.</p>
+</li>
+<li>
+<p>Single API for all platforms</p>
+<div class="ulist">
+<ul>
+<li>
+<p>no more OpenGL vs OpenGL ES separation</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Still a <code>C</code> API</p>
+<div class="ulist">
+<ul>
+<li>
+<p>but enums are typed (unlike GL)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Single, multi-API compute language (for shaders and kernels)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>SPIR-V</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vulkan_vs_opengl">Vulkan vs OpenGL</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<a class="image" href="https://www.toptal.com/api-developers/a-brief-overview-of-vulkan-api"><img src="assets/lecture11_vulkan-2840d.png" alt="lecture11 vulkan 2840d"></a>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vulkan_1_0_specification">Vulkan 1.0 specification</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>launched on February 16th, 2016</p>
+</li>
+<li>
+<p><a href="https://www.khronos.org/registry/vulkan/" class="bare">https://www.khronos.org/registry/vulkan/</a></p>
+</li>
+<li>
+<p><a href="https://www.khronos.org/assets/uploads/developers/library/overview/vulkan-overview.pdf">Overview presentation - let&#8217;s dig in</a></p>
+</li>
+<li>
+<p><a href="https://renderdoc.org/vulkan-in-30-minutes.html" class="bare">https://renderdoc.org/vulkan-in-30-minutes.html</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sample_code">Sample code</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>McNopper has some good <a href="https://github.com/McNopper/Vulkan">Vulkan examples</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p>also, fyi, OpenGL and OpenGL ES ones also</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/McNopper/OpenGL">OpenGL</a></p>
+</li>
+<li>
+<p><a href="https://github.com/McNopper/OpenGL_ES">OpenGL ES</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>The SDK provides the development and runtime components for building, running, and debugging Vulkan applications.</p>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; LunarG Vulkan SDK<br>
+<cite>https://lunarg.com/</cite>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_question">Question?</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Vulkan experience looks likely to be <strong>very</strong> valuable in industry</p>
+</li>
+<li>
+<p>I&#8217;m thinking about converting Advanced Graphics to use Vulkan</p>
+<div class="ulist">
+<ul>
+<li>
+<p>for 2017 or 2018 delivery</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>What do you think?</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_other_vulkan_links">Other Vulkan links</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Vulkan Programming Guide</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.phoronix.com/scan.php?page=news_item&amp;px=Vulkan-Programming-Guide-Pre" class="bare">https://www.phoronix.com/scan.php?page=news_item&amp;px=Vulkan-Programming-Guide-Pre</a></p>
+</li>
+<li>
+<p><a href="https://twitter.com/sehurlburt/status/806950062408351744" class="bare">https://twitter.com/sehurlburt/status/806950062408351744</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="https://renderdoc.org/vulkan-in-30-minutes.html" class="bare">https://renderdoc.org/vulkan-in-30-minutes.html</a></p>
+</li>
+<li>
+<p><a href="https://www.toptal.com/api-developers/a-brief-overview-of-vulkan-api" class="bare">https://www.toptal.com/api-developers/a-brief-overview-of-vulkan-api</a></p>
+</li>
+<li>
+<p><a href="https://libcinder.org/notes/vulkan" class="bare">https://libcinder.org/notes/vulkan</a></p>
+</li>
+<li>
+<p><a href="https://github.com/SaschaWillems/Vulkan" class="bare">https://github.com/SaschaWillems/Vulkan</a></p>
+</li>
+<li>
+<p><a href="https://imgtec.com/blog/vulkan-one-api-for-all-platforms/" class="bare">https://imgtec.com/blog/vulkan-one-api-for-all-platforms/</a></p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -484,21 +777,5 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 Last updated 2016-12-16 11:43:44 GMT
 </div>
 </div>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  messageStyle: "none",
-  tex2jax: {
-    inlineMath: [["\\(", "\\)"]],
-    displayMath: [["\\[", "\\]"]],
-    ignoreClass: "nostem|nolatexmath"
-  },
-  asciimath2jax: {
-    delimiters: [["\\$", "\\$"]],
-    ignoreClass: "nostem|noasciimath"
-  },
-  TeX: { equationNumbers: { autoNumber: "none" } }
-});
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.0/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
 </body>
 </html>
