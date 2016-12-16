@@ -1,0 +1,107 @@
+= Vulkan
+:imagesdir: assets
+:revealjs_history: true
+:examplesdir: examples
+
+== Vulkan
+
+* http://nickdesaulniers.github.io/RawWebGL/#/2
+
+== Vulkan - Question
+
+* Vulkan is a modern replacement for OpenGL
+* Many games will port to Vulkan
+* Vulkan is (even) lower level than OpenGL
+
+== Vulkan - Industry Forged
+
+[quote, https://www.khronos.org/vulkan/]
+____
+Vulkan is a new generation graphics and compute API that provides high-efficiency, cross-platform access to modern GPUs used in a wide variety of devices from PCs and consoles to mobile phones and embedded platforms.
+____
+
+== DirectX 12 & Metal
+
+* Conceptually, Vulkan is similar to both:
+  ** Microsoft's DirectX 12
+  ** Apple's Metal
+* BUT, those only work on their platforms
+* Vulkan is cross-platform, by design
+  ** Windows (xp, 7, 8, 10)
+  ** SteamOS
+  ** Linux
+  ** Tizen!!!
+  ** Android (7.0+)images
+  ** sort-of OS X and iOS
+    *** Vulkan support not announced by Apple
+    *** Third party support - https://moltengl.com/moltenvk/[MoltenVK]
+* Vulkan's core in AMD's Mantle
+
+== Wrt OpenGL
+
+* OpenGL seems likely to continue to supported with hardware and hardware drivers for the near future
+  ** Khronos say they'll keep developing OpenGL (and ES) in parallel with Vulkan
+* Longer term, seems likely that a software OpenGL layer will be developed, that use Vulkan underneath
+  ** OpenGL driver development is extremely complex
+  ** Vulkan driver development is much easier
+
+== Benefits of Vulkan (performance)
+
+* can create Command Buffers in parallel
+  ** leverage multicore CPUs more
+  ** good for CPU-limited render situations
+* more predictable performance
+  ** you have more control
+  ** driver does less, so driver doesn't do stuff you don't expect or can't control
+
+== Benefits of Vulkan (API)
+
+* Vulkan is designed from the ground up to run on diverse platforms, ranging from mobiles and tablets, to gaming consoles and high-end desktops.
+* Single API for all platforms
+  ** no more OpenGL vs OpenGL ES separation
+* Still a `C` API
+  ** but enums are typed (unlike GL)
+* Single, multi-API compute language (for shaders and kernels)
+  ** SPIR-V
+
+== Vulkan vs OpenGL
+
+image::lecture11_vulkan-2840d.png[link=https://www.toptal.com/api-developers/a-brief-overview-of-vulkan-api]
+
+
+== Vulkan 1.0 specification
+
+* launched on February 16th, 2016
+* https://www.khronos.org/registry/vulkan/
+* https://www.khronos.org/assets/uploads/developers/library/overview/vulkan-overview.pdf[Overview presentation - let's dig in]
+* https://renderdoc.org/vulkan-in-30-minutes.html
+
+== Sample code
+
+* McNopper has some good https://github.com/McNopper/Vulkan[Vulkan examples]
+  ** also, fyi, OpenGL and OpenGL ES ones also
+    *** https://github.com/McNopper/OpenGL[OpenGL]
+    *** https://github.com/McNopper/OpenGL_ES[OpenGL ES]
+
+[quote, LunarG Vulkan SDK, https://lunarg.com/]
+____
+The SDK provides the development and runtime components for building, running, and debugging Vulkan applications.
+____
+
+== Question?
+
+* Vulkan experience looks likely to be *very* valuable in industry
+* I'm thinking about converting Advanced Graphics to use Vulkan
+  ** for 2017 or 2018 delivery
+* What do you think?
+
+=== Other Vulkan links
+
+* Vulkan Programming Guide
+  ** https://www.phoronix.com/scan.php?page=news_item&px=Vulkan-Programming-Guide-Pre
+  ** https://twitter.com/sehurlburt/status/806950062408351744
+* https://renderdoc.org/vulkan-in-30-minutes.html
+* https://www.toptal.com/api-developers/a-brief-overview-of-vulkan-api
+* https://libcinder.org/notes/vulkan
+* https://github.com/SaschaWillems/Vulkan
+* https://imgtec.com/blog/vulkan-one-api-for-all-platforms/
